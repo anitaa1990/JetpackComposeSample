@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JetpackComposeSample</string>
+    <string name="intro_screen_text">Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android by using a declarative approach where UI components are described as functions of the application state.\n\nThis repository contains samples on jetpack compose for building different components like layouts, animations, navigation, saving states and much more.</string>
+</resources>
