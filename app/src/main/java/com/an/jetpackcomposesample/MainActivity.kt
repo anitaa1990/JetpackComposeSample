@@ -15,8 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.an.jetpackcomposesample.screen.ColumnScreen
 import com.an.jetpackcomposesample.screen.RowScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
+import com.an.jetpackcomposesample.ui.theme.Purple40
+import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +39,8 @@ fun MainScreen() {
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
+                    containerColor = PurpleGrey80,
+                    titleContentColor = Purple40,
                 ),
                 title = {
                     Text(stringResource(id = R.string.app_name))
@@ -47,7 +50,8 @@ fun MainScreen() {
         },
     ) { innerPadding ->
         // IntroScreen(Modifier.padding(innerPadding))
-        RowScreen(Modifier.padding(innerPadding))
+//        RowScreen(Modifier.padding(innerPadding))
+        ColumnScreen(Modifier.padding(innerPadding))
     }
 }
 
