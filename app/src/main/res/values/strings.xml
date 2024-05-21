@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">JetpackComposeSample</string>
     <string name="intro_screen_text">Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android by using a declarative approach where UI components are described as functions of the application state.\n\nThis repository contains samples on jetpack compose for building different components like layouts, animations, navigation, saving states and much more.</string>
+    <string name="row_screen_text">Row</string>
+    <string name="column_screen_text">Row and Column are essential components of Jetpack Compose. <b>Column</b> is a composable function used to arrange its child vertically, similar to how a <i>vertical</i> Linear Layout works in traditional Android. A Column is a vertical container that holds other composables. This makes it easy to create vertical layouts for your UI.\n\n<b>Row</b> is a composable function used to arrange its child composables horizontally, similar to how a <i>horizontal</i> LinearLayout works in traditional Android. A Row is a horizontal container that holds other composables.</string>
+    <string name="row_screen_txt_1">Start - places children horizontally so that they are as close as possible to the beginning of the horizontal axis.</string>
+    <string name="row_screen_txt_2">End - places children horizontally so that they are as close as possible to the end of the horizontal axis.</string>
+    <string name="row_screen_txt_3">Center - places children horizontally so that they are as close as possible to the middle of the horizontal axis.</string>
+    <string name="row_screen_txt_4">SpaceBetween - places child elements across the main axis without free space before first and after the last child.</string>
+    <string name="row_screen_txt_5">SpaceEvenly - places child elements across the main axis, including free space before the first and after the last child.</string>
+    <string name="row_screen_txt_6">SpaceAround - places child elements across the main axis with half of the free space before the first and after the last child.</string>
 </resources>

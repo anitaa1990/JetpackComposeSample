@@ -45,7 +45,8 @@ fun MainScreen() {
             )
         },
     ) { innerPadding ->
-        IntroScreen(Modifier.padding(innerPadding))
+        // IntroScreen(Modifier.padding(innerPadding))
+        RowScreen(Modifier.padding(innerPadding))
     }
 }
 
