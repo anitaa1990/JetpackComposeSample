@@ -21,4 +21,8 @@
     <string name="column_screen_txt_4">SpaceBetween - places child elements across the main axis without free space before first and after the last child.</string>
     <string name="column_screen_txt_5">SpaceEvenly - places child elements across the main axis, including free space before the first and after the last child.</string>
     <string name="column_screen_txt_6">SpaceAround - places child elements across the main axis with half of the free space before the first and after the last child.</string>
+    <string name="text_screen_sample_txt_1">Justify align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="text_screen_sample_txt_2">Start align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="text_screen_sample_txt_3">Center align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="text_screen_sample_txt_4">End align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
 </resources>

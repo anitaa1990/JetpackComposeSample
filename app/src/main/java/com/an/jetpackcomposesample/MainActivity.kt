@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.an.jetpackcomposesample.screen.ColumnScreen
 import com.an.jetpackcomposesample.screen.RowScreen
+import com.an.jetpackcomposesample.screen.TextScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 import com.an.jetpackcomposesample.ui.theme.Purple40
 import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
@@ -51,7 +52,8 @@ fun MainScreen() {
     ) { innerPadding ->
         // IntroScreen(Modifier.padding(innerPadding))
 //        RowScreen(Modifier.padding(innerPadding))
-        ColumnScreen(Modifier.padding(innerPadding))
+//        ColumnScreen(Modifier.padding(innerPadding))
+        TextScreen(Modifier.padding(innerPadding))
     }
 }
 
