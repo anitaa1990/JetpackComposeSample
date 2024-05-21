@@ -15,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.an.jetpackcomposesample.screen.ButtonScreen
 import com.an.jetpackcomposesample.screen.ColumnScreen
+import com.an.jetpackcomposesample.screen.IntroScreen
 import com.an.jetpackcomposesample.screen.RowScreen
 import com.an.jetpackcomposesample.screen.TextScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
@@ -50,10 +52,11 @@ fun MainScreen() {
             )
         },
     ) { innerPadding ->
-        // IntroScreen(Modifier.padding(innerPadding))
+//         IntroScreen(Modifier.padding(innerPadding))
 //        RowScreen(Modifier.padding(innerPadding))
 //        ColumnScreen(Modifier.padding(innerPadding))
-        TextScreen(Modifier.padding(innerPadding))
+//        TextScreen(Modifier.padding(innerPadding))
+        ButtonScreen(Modifier.padding(innerPadding))
     }
 }
 

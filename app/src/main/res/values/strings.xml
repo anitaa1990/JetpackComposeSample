@@ -25,4 +25,5 @@
     <string name="text_screen_sample_txt_2">Start align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
     <string name="text_screen_sample_txt_3">Center align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
     <string name="text_screen_sample_txt_4">End align - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="button_screen_text">Button Samples</string>
 </resources>
