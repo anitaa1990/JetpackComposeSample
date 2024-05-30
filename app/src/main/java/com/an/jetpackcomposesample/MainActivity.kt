@@ -23,6 +23,7 @@ import com.an.jetpackcomposesample.screen.RowScreen
 import com.an.jetpackcomposesample.screen.TextFieldScreen
 import com.an.jetpackcomposesample.screen.TextScreen
 import com.an.jetpackcomposesample.screen.grid.GridScreen
+import com.an.jetpackcomposesample.screen.list.ListScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 import com.an.jetpackcomposesample.ui.theme.Purple40
 import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
@@ -62,7 +63,8 @@ fun MainScreen() {
 //        ButtonScreen(Modifier.padding(innerPadding))
 //        ImageScreen(Modifier.padding(innerPadding))
 //        TextFieldScreen(Modifier.padding(innerPadding))
-        GridScreen(Modifier.padding(innerPadding))
+//        GridScreen(Modifier.padding(innerPadding))
+          ListScreen(Modifier.padding(innerPadding))
     }
 }
 
