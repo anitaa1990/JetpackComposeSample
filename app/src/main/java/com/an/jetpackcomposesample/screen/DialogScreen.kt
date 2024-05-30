@@ -15,9 +15,13 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -38,6 +42,7 @@ import com.an.jetpackcomposesample.ui.theme.Purple80
 fun DialogScreen(modifier: Modifier = Modifier) {
     val showAlertDialog = remember { mutableStateOf(false) }
     val showCustomDialog = remember { mutableStateOf(false) }
+    val datePickerDialog = remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -52,6 +57,9 @@ fun DialogScreen(modifier: Modifier = Modifier) {
         Button(onClick = { showCustomDialog.value = true }) {
             Text("Custom Dialog")
         }
+        Button(onClick = { datePickerDialog.value = true }) {
+            Text("DatePicker Dialog")
+        }
     }
 
     if(showAlertDialog.value) {
@@ -59,6 +67,9 @@ fun DialogScreen(modifier: Modifier = Modifier) {
     }
     if(showCustomDialog.value) {
         CustomDialogExample(showCustomDialog)
+    }
+    if(datePickerDialog.value) {
+        DatePickerDialogExample(datePickerDialog)
     }
 }
 
@@ -112,7 +123,9 @@ fun CustomDialogExample(showCustomDialog: MutableState<Boolean>) {
             ) {
                 Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = Purple80)
                 Column(
-                    modifier = Modifier.padding(16.dp).fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
@@ -138,5 +151,33 @@ fun CustomDialogExample(showCustomDialog: MutableState<Boolean>) {
                 }
             }
         }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DatePickerDialogExample(showDatePickerDialog: MutableState<Boolean>) {
+    val dateState = rememberDatePickerState()
+
+    DatePickerDialog(
+        onDismissRequest = { showDatePickerDialog.value = false },
+        confirmButton = {
+            TextButton(
+                onClick = { showDatePickerDialog.value = false }
+            ) {
+                Text("Confirm", color = Purple40)
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = { showDatePickerDialog.value = false }
+            ) {
+                Text(text = "Cancel", color = Purple40)
+            }
+        }) {
+        DatePicker(
+            state = dateState,
+            showModeToggle = true
+        )
     }
 }
