@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.an.jetpackcomposesample.screen.ButtonScreen
+import com.an.jetpackcomposesample.screen.CardScreen
 import com.an.jetpackcomposesample.screen.ColumnScreen
 import com.an.jetpackcomposesample.screen.ImageScreen
 import com.an.jetpackcomposesample.screen.IntroScreen
@@ -66,7 +67,8 @@ fun MainScreen() {
 //        TextFieldScreen(Modifier.padding(innerPadding))
 //        GridScreen(Modifier.padding(innerPadding))
 //        ListScreen(Modifier.padding(innerPadding))
-        ScaffoldScreen(Modifier.padding(innerPadding))
+//        ScaffoldScreen(Modifier.padding(innerPadding))
+        CardScreen(Modifier.padding(innerPadding))
     }
 }
 
