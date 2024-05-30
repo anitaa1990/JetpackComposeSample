@@ -2,6 +2,7 @@ package com.an.jetpackcomposesample.screen.list
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,7 +24,8 @@ import com.an.jetpackcomposesample.ui.theme.PurpleGrey40
 
 @Composable
 fun ListItem(
-    item: ListModel
+    item: ListModel,
+    onClick: (item: ListModel)-> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -31,6 +33,7 @@ fun ListItem(
             .fillMaxWidth()
             .wrapContentHeight()
             .background(Purple60)
+            .clickable { onClick(item) }
     ) {
         Image(
             painter = painterResource(id = item.image),
