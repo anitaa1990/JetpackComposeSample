@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.an.jetpackcomposesample.screen.ButtonScreen
 import com.an.jetpackcomposesample.screen.CardScreen
 import com.an.jetpackcomposesample.screen.ColumnScreen
+import com.an.jetpackcomposesample.screen.DialogScreen
 import com.an.jetpackcomposesample.screen.ImageScreen
 import com.an.jetpackcomposesample.screen.IntroScreen
 import com.an.jetpackcomposesample.screen.ProgressBarScreen
@@ -70,7 +71,8 @@ fun MainScreen() {
 //        ListScreen(Modifier.padding(innerPadding))
 //        ScaffoldScreen(Modifier.padding(innerPadding))
 //        CardScreen(Modifier.padding(innerPadding))
-        ProgressBarScreen(Modifier.padding(innerPadding))
+//        ProgressBarScreen(Modifier.padding(innerPadding))
+          DialogScreen(Modifier.padding(innerPadding))
     }
 }
 
