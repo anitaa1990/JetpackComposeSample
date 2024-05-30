@@ -30,4 +30,5 @@
     <string name="image_screen_content_desc">Image description</string>
     <string name="scaffold_screen_text">This is an example of a scaffold. It uses the Scaffold composable\'s parameters to create a screen with a simple top app bar, bottom app bar, and floating action button. It also contains some basic inner content, such as this text.</string>
     <string name="card_screen_text">Different card samples</string>
+    <string name="progress_screen_text">Different progress indicators</string>
 </resources>
