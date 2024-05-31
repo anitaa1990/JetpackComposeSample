@@ -22,6 +22,7 @@ import com.an.jetpackcomposesample.screen.DialogScreen
 import com.an.jetpackcomposesample.screen.ImageScreen
 import com.an.jetpackcomposesample.screen.IntroScreen
 import com.an.jetpackcomposesample.screen.ProgressBarScreen
+import com.an.jetpackcomposesample.screen.RadioButtonScreen
 import com.an.jetpackcomposesample.screen.RowScreen
 import com.an.jetpackcomposesample.screen.ScaffoldScreen
 import com.an.jetpackcomposesample.screen.TextFieldScreen
@@ -72,7 +73,8 @@ fun MainScreen() {
 //        ScaffoldScreen(Modifier.padding(innerPadding))
 //        CardScreen(Modifier.padding(innerPadding))
 //        ProgressBarScreen(Modifier.padding(innerPadding))
-          DialogScreen(Modifier.padding(innerPadding))
+//        DialogScreen(Modifier.padding(innerPadding))
+        RadioButtonScreen(Modifier.padding(innerPadding))
     }
 }
 

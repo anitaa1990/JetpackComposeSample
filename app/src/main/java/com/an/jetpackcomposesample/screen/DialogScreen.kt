@@ -24,6 +24,7 @@ import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -36,12 +37,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.Purple40
 import com.an.jetpackcomposesample.ui.theme.Purple60
 import com.an.jetpackcomposesample.ui.theme.Purple80
@@ -60,6 +63,11 @@ fun DialogScreen(modifier: Modifier = Modifier) {
             .padding(start = 12.dp, top = 12.dp, end = 12.dp),
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
+        Text(
+            text = stringResource(R.string.dialog_screen_text),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
         Button(onClick = { showAlertDialog.value = true }) {
             Text("Alert Dialog")
         }
