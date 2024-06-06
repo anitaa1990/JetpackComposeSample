@@ -32,4 +32,10 @@
     <string name="card_screen_text">Different card samples</string>
     <string name="progress_screen_text">Different progress indicators</string>
     <string name="dialog_screen_text">Different Dialog examples</string>
+    <string name="route_update_screen">Updates</string>
+    <string name="route_calls_screen">Calls</string>
+    <string name="route_home_screen">Home</string>
+    <string name="route_chat_screen">Chats</string>
+    <string name="route_settings_screen">Settings</string>
+    <string name="route_notification_screen">Notifications</string>
 </resources>

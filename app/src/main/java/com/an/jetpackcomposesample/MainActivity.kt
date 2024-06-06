@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -15,23 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.an.jetpackcomposesample.screen.ButtonScreen
-import com.an.jetpackcomposesample.screen.CardScreen
-import com.an.jetpackcomposesample.screen.CheckBoxScreen
-import com.an.jetpackcomposesample.screen.ColumnScreen
-import com.an.jetpackcomposesample.screen.DialogScreen
-import com.an.jetpackcomposesample.screen.ImageScreen
-import com.an.jetpackcomposesample.screen.IntroScreen
-import com.an.jetpackcomposesample.screen.ProgressBarScreen
-import com.an.jetpackcomposesample.screen.RadioButtonScreen
-import com.an.jetpackcomposesample.screen.RowScreen
-import com.an.jetpackcomposesample.screen.ScaffoldScreen
-import com.an.jetpackcomposesample.screen.SmallerComponentScreen
-import com.an.jetpackcomposesample.screen.TextFieldScreen
-import com.an.jetpackcomposesample.screen.TextScreen
-import com.an.jetpackcomposesample.screen.grid.GridScreen
-import com.an.jetpackcomposesample.screen.list.ListScreen
-import com.an.jetpackcomposesample.screen.tabs.MainTabScreen
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.an.jetpackcomposesample.screen.bottombar.MainBottomBarScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 import com.an.jetpackcomposesample.ui.theme.Purple40
 import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
@@ -40,8 +25,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
             JetpackComposeSampleTheme {
-                MainScreen()
+                MainScreen(navController)
             }
         }
     }
@@ -49,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -80,12 +66,14 @@ fun MainScreen() {
 //        RadioButtonScreen(Modifier.padding(innerPadding))
 //        CheckBoxScreen(Modifier.padding(innerPadding))
 //        SmallerComponentScreen(Modifier.padding(innerPadding))
-        MainTabScreen(Modifier.padding(innerPadding))
+//        MainTabScreen(Modifier.padding(innerPadding))
+        MainBottomBarScreen(navController, Modifier.padding(innerPadding))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    MainScreen()
+    val navController = rememberNavController()
+    MainScreen(navController)
 }
