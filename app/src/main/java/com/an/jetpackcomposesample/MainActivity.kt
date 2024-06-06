@@ -31,6 +31,7 @@ import com.an.jetpackcomposesample.screen.TextFieldScreen
 import com.an.jetpackcomposesample.screen.TextScreen
 import com.an.jetpackcomposesample.screen.grid.GridScreen
 import com.an.jetpackcomposesample.screen.list.ListScreen
+import com.an.jetpackcomposesample.screen.tabs.MainTabScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 import com.an.jetpackcomposesample.ui.theme.Purple40
 import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
@@ -78,7 +79,8 @@ fun MainScreen() {
 //        DialogScreen(Modifier.padding(innerPadding))
 //        RadioButtonScreen(Modifier.padding(innerPadding))
 //        CheckBoxScreen(Modifier.padding(innerPadding))
-        SmallerComponentScreen(Modifier.padding(innerPadding))
+//        SmallerComponentScreen(Modifier.padding(innerPadding))
+        MainTabScreen(Modifier.padding(innerPadding))
     }
 }
 
