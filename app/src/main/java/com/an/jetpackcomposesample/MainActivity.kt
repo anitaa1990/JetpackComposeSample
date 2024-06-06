@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.an.jetpackcomposesample.screen.ButtonScreen
 import com.an.jetpackcomposesample.screen.CardScreen
+import com.an.jetpackcomposesample.screen.CheckBoxScreen
 import com.an.jetpackcomposesample.screen.ColumnScreen
 import com.an.jetpackcomposesample.screen.DialogScreen
 import com.an.jetpackcomposesample.screen.ImageScreen
@@ -74,7 +75,8 @@ fun MainScreen() {
 //        CardScreen(Modifier.padding(innerPadding))
 //        ProgressBarScreen(Modifier.padding(innerPadding))
 //        DialogScreen(Modifier.padding(innerPadding))
-        RadioButtonScreen(Modifier.padding(innerPadding))
+//        RadioButtonScreen(Modifier.padding(innerPadding))
+          CheckBoxScreen(Modifier.padding(innerPadding))
     }
 }
 
