@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">JetpackComposeSample</string>
+    <string name="back_button">Back</string>
     <string name="intro_screen_text">Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android by using a declarative approach where UI components are described as functions of the application state.\n\nThis repository contains samples on jetpack compose for building different components like layouts, animations, navigation, saving states and much more.</string>
     <string name="intro_screen_row">Row is used to place items horizontally on the screen.</string>
     <string name="intro_screen_column">Column is used to place items vertically on the screen.</string>
