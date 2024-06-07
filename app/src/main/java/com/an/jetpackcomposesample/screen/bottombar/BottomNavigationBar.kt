@@ -5,12 +5,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavHostController
 import com.an.jetpackcomposesample.provider.NavigationItem
 
@@ -46,12 +48,12 @@ fun BottomNavigationBar(navController: NavHostController) {
                         )
                 },
                 // uncomment this line if you want to add text to the bottom bar
-//                label = {
-//                    Text(
-//                        item.route,
-//                        overflow = TextOverflow.Ellipsis,
-//                        maxLines = 1)
-//                },
+                label = {
+                    Text(
+                        item.route,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1)
+                },
                 selected = selectedItem == index,
                 onClick = {
                     selectedItem = index

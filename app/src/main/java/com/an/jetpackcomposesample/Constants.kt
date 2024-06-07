@@ -1,12 +1,12 @@
 package com.an.jetpackcomposesample
 
 object Constants {
-    const val NAV_ROUTE_HOME = "home"
-    const val NAV_ROUTE_UPDATES = "updates"
-    const val NAV_ROUTE_CALLS = "calls"
-    const val NAV_ROUTE_CHATS = "chats"
-    const val NAV_ROUTE_SETTINGS = "settings"
-    const val NAV_ROUTE_NOTIFICATION = "notifications"
+    const val NAV_ROUTE_HOME = "Home"
+    const val NAV_ROUTE_UPDATES = "Updates"
+    const val NAV_ROUTE_CALLS = "Calls"
+    const val NAV_ROUTE_CHATS = "Chats"
+    const val NAV_ROUTE_SETTINGS = "Settings"
+    const val NAV_ROUTE_NOTIFICATION = "Notifications"
 
     const val NAV_ROUTE_MAIN = "main"
     const val NAV_ROUTE_INTRO = "Intro"

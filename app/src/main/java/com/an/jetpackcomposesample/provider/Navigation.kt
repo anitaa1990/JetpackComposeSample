@@ -23,13 +23,7 @@ import com.an.jetpackcomposesample.screen.TextScreen
 import com.an.jetpackcomposesample.screen.bottombar.MainBottomBarScreen
 import com.an.jetpackcomposesample.screen.grid.GridScreen
 import com.an.jetpackcomposesample.screen.list.ListScreen
-import com.an.jetpackcomposesample.screen.tabs.CallsScreen
-import com.an.jetpackcomposesample.screen.tabs.ChatScreen
-import com.an.jetpackcomposesample.screen.tabs.HomeScreen
 import com.an.jetpackcomposesample.screen.tabs.MainTabScreen
-import com.an.jetpackcomposesample.screen.tabs.NotificationsScreen
-import com.an.jetpackcomposesample.screen.tabs.SettingsScreen
-import com.an.jetpackcomposesample.screen.tabs.UpdatesScreen
 
 @Composable
 fun Navigation(
@@ -41,26 +35,6 @@ fun Navigation(
         startDestination = NavigationItem.IntroScreen.route,
         modifier = modifier
     ) {
-        composable(NavigationItem.Updates.route) {
-            UpdatesScreen()
-        }
-        composable(NavigationItem.Calls.route) {
-            CallsScreen()
-        }
-        composable(NavigationItem.Home.route) {
-            HomeScreen()
-        }
-        composable(NavigationItem.Chats.route) {
-            ChatScreen()
-        }
-        composable(NavigationItem.Settings.route) {
-            SettingsScreen()
-        }
-        composable(NavigationItem.Notification.route) {
-            NotificationsScreen()
-        }
-
-
         composable(NavigationItem.IntroScreen.route) {
             IntroScreen(navController)
         }
@@ -113,7 +87,7 @@ fun Navigation(
             MainTabScreen()
         }
         composable(NavigationItem.BottomBarScreen.route) {
-            MainBottomBarScreen(navController)
+            MainBottomBarScreen()
         }
         composable(NavigationItem.ThemesScreen.route) {
             DynamicThemeScreen()
