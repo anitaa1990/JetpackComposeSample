@@ -36,8 +36,6 @@ fun MainBottomBarScreen(
                     innerPadding.calculateBottomPadding()
                 )
             )
-        ) {
-            Navigation(navController = navController)
-        }
+        )
     }
 }

@@ -62,7 +62,7 @@ fun Navigation(
 
 
         composable(NavigationItem.IntroScreen.route) {
-            IntroScreen()
+            IntroScreen(navController)
         }
         composable(NavigationItem.RowScreen.route) {
             RowScreen()
