@@ -31,9 +31,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Pink40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey40
 
 @Composable
 fun CardScreen(modifier: Modifier = Modifier) {
@@ -146,7 +143,7 @@ fun CustomCardExample() {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .background(Purple60)
+                .background(MaterialTheme.colorScheme.inverseOnSurface)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_image),
@@ -158,8 +155,8 @@ fun CustomCardExample() {
                     .clip(CircleShape)
             )
             Column {
-                Text(text = "Anitaa Murthy", color = PurpleGrey40)
-                Text(text = "Android developer", color = Pink40)
+                Text(text = "Anitaa Murthy", color = MaterialTheme.colorScheme.onSecondaryContainer)
+                Text(text = "Android developer", color = MaterialTheme.colorScheme.outline)
             }
         }
     }

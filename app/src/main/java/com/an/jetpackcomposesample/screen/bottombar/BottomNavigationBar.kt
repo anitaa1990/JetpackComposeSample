@@ -1,6 +1,7 @@
 package com.an.jetpackcomposesample.screen.bottombar
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -12,10 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import com.an.jetpackcomposesample.provider.NavigationItem
-import com.an.jetpackcomposesample.ui.theme.Pink40
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
@@ -36,8 +33,8 @@ fun BottomNavigationBar(navController: NavHostController) {
     }
 
     NavigationBar(
-        containerColor = PurpleGrey80,
-        contentColor = Purple40,
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+        contentColor = MaterialTheme.colorScheme.primary,
     ) {
         bottomBarList.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -71,11 +68,11 @@ fun BottomNavigationBar(navController: NavHostController) {
                 },
                 colors = NavigationBarItemDefaults
                     .colors(
-                        selectedIconColor = Purple40,
-                        unselectedIconColor = PurpleGrey40,
-                        selectedTextColor = Purple40,
-                        unselectedTextColor = Pink40,
-                        indicatorColor = PurpleGrey80
+                        selectedIconColor = MaterialTheme.colorScheme.primary,
+                        unselectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        selectedTextColor = MaterialTheme.colorScheme.primary,
+                        unselectedTextColor = MaterialTheme.colorScheme.outline,
+                        indicatorColor = MaterialTheme.colorScheme.primaryContainer
                     )
 
 

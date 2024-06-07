@@ -30,7 +30,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Purple40
 
 @Composable
 fun ImageScreen(modifier: Modifier = Modifier) {
@@ -118,7 +117,7 @@ fun ImageWithBorderExample() {
         modifier = Modifier
             .size(150.dp)
             .padding(10.dp)
-            .border(BorderStroke(borderWidth, Purple40), CircleShape)
+            .border(BorderStroke(borderWidth, MaterialTheme.colorScheme.primary), CircleShape)
             .padding(borderWidth)
             .clip(CircleShape)
     )

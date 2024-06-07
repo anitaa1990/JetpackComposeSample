@@ -18,10 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.Purple80
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun RowScreen(modifier: Modifier = Modifier) {
@@ -69,11 +65,27 @@ private fun BodyText(string: String) {
 
 @Composable
 private fun RowStyle(arrangement: Arrangement.Horizontal) {
-    Row(modifier = Modifier.fillMaxWidth().padding(12.dp).background(Purple60, shape = RoundedCornerShape(10.dp)),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+            .background(MaterialTheme.colorScheme.inverseOnSurface, shape = RoundedCornerShape(10.dp)),
         horizontalArrangement  =  arrangement) {
-        Text(text = "A", Modifier.background(PurpleGrey80, shape = RoundedCornerShape(8.dp)).padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp))
-        Text(text = "B", Modifier.background(Purple80, shape = RoundedCornerShape(8.dp)).padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp))
-        Text(text = "C", Modifier.background(Purple40, shape = RoundedCornerShape(8.dp)).padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp))
+        Text(
+            text = "A",
+            Modifier.background(MaterialTheme.colorScheme.primaryContainer, shape = RoundedCornerShape(8.dp))
+                .padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp)
+        )
+        Text(
+            text = "B",
+            Modifier.background(MaterialTheme.colorScheme.secondaryContainer, shape = RoundedCornerShape(8.dp))
+                .padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp)
+        )
+        Text(
+            text = "C",
+            Modifier.background(MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(8.dp))
+                .padding(start = 12.dp, top = 8.dp, end = 12.dp, bottom = 8.dp)
+        )
     }
 }
 

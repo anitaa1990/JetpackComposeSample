@@ -31,7 +31,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.an.jetpackcomposesample.ui.theme.Purple40
 
 @Composable
 fun TextFieldScreen(modifier: Modifier = Modifier) {
@@ -106,7 +105,7 @@ fun StyledTextFieldExample() {
             onValueChange = { value = it },
             label = { Text("Enter text") },
             maxLines = 2,
-            textStyle = TextStyle(color = Purple40, fontWeight = FontWeight.Bold),
+            textStyle = TextStyle(color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(20.dp),
             shape = MaterialTheme.shapes.extraLarge,
             colors = TextFieldDefaults.textFieldColors(

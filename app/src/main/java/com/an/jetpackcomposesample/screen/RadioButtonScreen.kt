@@ -20,8 +20,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple80
 
 @Composable
 fun RadioButtonScreen(modifier: Modifier = Modifier) {
@@ -78,8 +76,8 @@ fun StyledRadioButton() {
                     selected = (country == selectedOption),
                     onClick = { selectedOption = country },
                     colors = RadioButtonDefaults.colors(
-                        selectedColor = Purple40,
-                        unselectedColor = Purple80
+                        selectedColor = MaterialTheme.colorScheme.primary,
+                        unselectedColor = MaterialTheme.colorScheme.secondaryContainer
                     )
                 )
                 Text(

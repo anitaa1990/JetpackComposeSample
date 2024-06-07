@@ -23,8 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple80
 
 @Composable
 fun CheckBoxScreen(modifier: Modifier = Modifier) {
@@ -57,8 +55,8 @@ fun BasicCheckBoxExample() {
                     checked = (country == checkedOption ),
                     onCheckedChange = { checkedOption = country },
                     colors = CheckboxDefaults.colors(
-                        checkedColor = Purple80,
-                        uncheckedColor = Purple40
+                        checkedColor = MaterialTheme.colorScheme.secondaryContainer,
+                        uncheckedColor = MaterialTheme.colorScheme.primary
                     )
                 )
                 Text(
@@ -98,8 +96,8 @@ fun TriStateCheckboxExample() {
                         childCheckedStates[index] = newState
                 } },
                 colors = CheckboxDefaults.colors(
-                    checkedColor = Purple80,
-                    uncheckedColor = Purple40
+                    checkedColor = MaterialTheme.colorScheme.secondaryContainer,
+                    uncheckedColor = MaterialTheme.colorScheme.primary
                 )
             )
             Text(
@@ -120,8 +118,8 @@ fun TriStateCheckboxExample() {
                         childCheckedStates[index] = it
                     },
                     colors = CheckboxDefaults.colors(
-                        checkedColor = Purple80,
-                        uncheckedColor = Purple40
+                        checkedColor = MaterialTheme.colorScheme.secondaryContainer,
+                        uncheckedColor = MaterialTheme.colorScheme.primary
                     )
                 )
                 Text(

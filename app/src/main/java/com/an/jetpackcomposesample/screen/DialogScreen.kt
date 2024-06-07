@@ -45,9 +45,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.an.jetpackcomposesample.R
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.Purple80
 
 @Composable
 fun DialogScreen(modifier: Modifier = Modifier) {
@@ -100,7 +97,7 @@ fun DialogScreen(modifier: Modifier = Modifier) {
 fun AlertDialogExample(showAlertDialog: MutableState<Boolean>) {
     AlertDialog(
         icon = {
-            Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = Purple80)
+            Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = MaterialTheme.colorScheme.secondaryContainer)
         },
         title = {
             Text(text = "Dialog with info icon")
@@ -113,14 +110,14 @@ fun AlertDialogExample(showAlertDialog: MutableState<Boolean>) {
             TextButton(
                 onClick = { showAlertDialog.value = false }
             ) {
-                Text("Confirm", color = Purple40)
+                Text("Confirm", color = MaterialTheme.colorScheme.primary)
             }
         },
         dismissButton = {
             TextButton(
                 onClick = { showAlertDialog.value = false }
             ) {
-                Text("Dismiss", color = Purple40)
+                Text("Dismiss", color = MaterialTheme.colorScheme.primary)
             }
         }
     )
@@ -141,10 +138,10 @@ fun CustomDialogExample(showCustomDialog: MutableState<Boolean>) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .background(Purple60)
+                    .background(MaterialTheme.colorScheme.inverseOnSurface)
                     .padding(16.dp)
             ) {
-                Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = Purple80)
+                Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = MaterialTheme.colorScheme.secondaryContainer)
                 Column(
                     modifier = Modifier
                         .padding(16.dp)
@@ -154,7 +151,7 @@ fun CustomDialogExample(showCustomDialog: MutableState<Boolean>) {
                 ) {
                     Text(
                         text = "Dialog with info icon",
-                        style = TextStyle(fontWeight = FontWeight.Bold, color = Purple40, fontSize = 18.sp)
+                        style = TextStyle(fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary, fontSize = 18.sp)
                     )
                     Text(
                         modifier = Modifier.padding(top = 10.dp),
@@ -165,12 +162,12 @@ fun CustomDialogExample(showCustomDialog: MutableState<Boolean>) {
                 TextButton(
                     onClick = { showCustomDialog.value = false }
                 ) {
-                    Text("Confirm", color = Purple40)
+                    Text("Confirm", color = MaterialTheme.colorScheme.primary)
                 }
                 TextButton(
                     onClick = { showCustomDialog.value = false }
                 ) {
-                    Text("Dismiss", color = Purple40)
+                    Text("Dismiss", color = MaterialTheme.colorScheme.primary)
                 }
             }
         }
@@ -188,14 +185,14 @@ fun DatePickerDialogExample(showDatePickerDialog: MutableState<Boolean>) {
             TextButton(
                 onClick = { showDatePickerDialog.value = false }
             ) {
-                Text("Confirm", color = Purple40)
+                Text("Confirm", color = MaterialTheme.colorScheme.primary)
             }
         },
         dismissButton = {
             TextButton(
                 onClick = { showDatePickerDialog.value = false }
             ) {
-                Text(text = "Cancel", color = Purple40)
+                Text(text = "Cancel", color = MaterialTheme.colorScheme.primary)
             }
         }) {
         DatePicker(

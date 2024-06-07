@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,8 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun ScaffoldScreen(modifier: Modifier = Modifier) {
@@ -29,8 +28,8 @@ fun ScaffoldScreen(modifier: Modifier = Modifier) {
     Scaffold(
         bottomBar = {
             BottomAppBar(
-                containerColor = PurpleGrey80,
-                contentColor = Purple40,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
             ) {
                 Text(
                     modifier = Modifier
@@ -42,8 +41,8 @@ fun ScaffoldScreen(modifier: Modifier = Modifier) {
         },
         floatingActionButton = {
             FloatingActionButton(
-                containerColor = PurpleGrey80,
-                contentColor = Purple40,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
                 onClick = { Toast.makeText(context, "Clicked!", Toast.LENGTH_SHORT).show() }
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")

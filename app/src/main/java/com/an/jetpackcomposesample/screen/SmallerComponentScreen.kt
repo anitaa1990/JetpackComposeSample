@@ -1,6 +1,7 @@
 package com.an.jetpackcomposesample.screen
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,10 +43,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.Purple80
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun SmallerComponentScreen(modifier: Modifier = Modifier) {
@@ -81,9 +78,9 @@ fun BasicSliderExample() {
             value = sliderPosition,
             onValueChange = { sliderPosition = it },
             colors = SliderDefaults.colors(
-                thumbColor = Purple40,
-                activeTrackColor = Purple40,
-                inactiveTrackColor = Purple80,
+                thumbColor = MaterialTheme.colorScheme.primary,
+                activeTrackColor = MaterialTheme.colorScheme.primary,
+                inactiveTrackColor = MaterialTheme.colorScheme.secondaryContainer,
             ),
             steps = 5,
             valueRange = 0f..100f
@@ -110,9 +107,9 @@ fun RangeSliderExample() {
                 // launch some business logic update with the state you hold
             },
             colors = SliderDefaults.colors(
-                thumbColor = Purple40,
-                activeTrackColor = Purple40,
-                inactiveTrackColor = Purple80,
+                thumbColor = MaterialTheme.colorScheme.primary,
+                activeTrackColor = MaterialTheme.colorScheme.primary,
+                inactiveTrackColor = MaterialTheme.colorScheme.secondaryContainer,
             )
         )
         Text(
@@ -156,10 +153,10 @@ fun SwitchExample() {
                 checked2 = it
             },
             colors = SwitchDefaults.colors(
-                checkedThumbColor = Purple60,
-                checkedTrackColor = Purple40,
-                uncheckedThumbColor = Purple60,
-                uncheckedTrackColor = PurpleGrey80,
+                checkedThumbColor = MaterialTheme.colorScheme.inverseOnSurface,
+                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                uncheckedThumbColor = MaterialTheme.colorScheme.inverseOnSurface,
+                uncheckedTrackColor = MaterialTheme.colorScheme.primaryContainer,
             )
         )
     }
@@ -197,18 +194,16 @@ fun AssistChipExample() {
             Text(
                 text = "Assist chip",
                 style = MaterialTheme.typography.labelMedium,
-                color = Purple40
+                color = MaterialTheme.colorScheme.primary
             )
         },
-        border = AssistChipDefaults.assistChipBorder(
-            borderColor = Purple40,
-        ),
+        border = BorderStroke(width = 3.dp, color = MaterialTheme.colorScheme.primary),
         leadingIcon = {
             Icon(
                 Icons.Filled.Settings,
                 contentDescription = "Settings",
                 Modifier.size(AssistChipDefaults.IconSize),
-                tint = Purple40
+                tint = MaterialTheme.colorScheme.primary
             )
         }
     )
@@ -223,17 +218,19 @@ fun FilterChipExample() {
     FilterChip(
         onClick = { selectedFilter = !selectedFilter },
         border = FilterChipDefaults.filterChipBorder(
-            borderColor = Purple40,
-            selectedBorderColor = Purple80
+            enabled = true,
+            selected = false,
+            borderColor = MaterialTheme.colorScheme.primary,
+            selectedBorderColor = MaterialTheme.colorScheme.secondaryContainer
         ),
         colors = FilterChipDefaults.filterChipColors(
-            selectedContainerColor = Purple80
+            selectedContainerColor = MaterialTheme.colorScheme.secondaryContainer
         ),
         label = {
             Text(
                 text = "Filter chip",
                 style = MaterialTheme.typography.labelMedium,
-                color = Purple40
+                color = MaterialTheme.colorScheme.primary
             )
         },
         selected = selectedFilter,
@@ -242,7 +239,7 @@ fun FilterChipExample() {
                 imageVector = filterLeadingIcon,
                 contentDescription = "Leading icon",
                 modifier = Modifier.size(FilterChipDefaults.IconSize),
-                tint = Purple40
+                tint = MaterialTheme.colorScheme.primary
             )
         },
     )
@@ -261,15 +258,17 @@ fun InputChipExample() {
             Text(
                 text = "Input chip",
                 style = MaterialTheme.typography.labelMedium,
-                color = Purple40
+                color = MaterialTheme.colorScheme.primary
             )
         },
         border = FilterChipDefaults.filterChipBorder(
-            borderColor = Purple40,
-            selectedBorderColor = Purple80
+            enabled = true,
+            selected = false,
+            borderColor = MaterialTheme.colorScheme.primary,
+            selectedBorderColor = MaterialTheme.colorScheme.secondaryContainer
         ),
         colors = FilterChipDefaults.filterChipColors(
-            selectedContainerColor = Purple80
+            selectedContainerColor = MaterialTheme.colorScheme.secondaryContainer
         ),
         selected = enabled,
         avatar = {
@@ -277,7 +276,7 @@ fun InputChipExample() {
                 Icons.Filled.Person,
                 contentDescription = "Input Chip person icon",
                 Modifier.size(InputChipDefaults.AvatarSize),
-                tint = Purple40
+                tint = MaterialTheme.colorScheme.primary
             )
         },
         trailingIcon = {
@@ -285,7 +284,7 @@ fun InputChipExample() {
                 Icons.Default.Close,
                 contentDescription = "Input Chip close icon",
                 Modifier.size(InputChipDefaults.AvatarSize),
-                tint = Purple40
+                tint = MaterialTheme.colorScheme.primary
             )
         },
     )
@@ -298,14 +297,12 @@ fun SuggestionChipExample() {
     val context = LocalContext.current
     SuggestionChip(
         onClick = { Toast.makeText(context, "Suggestion clicked!", Toast.LENGTH_SHORT).show() },
-        border = AssistChipDefaults.assistChipBorder(
-            borderColor = Purple40,
-        ),
+        border = BorderStroke(width = 3.dp, color = MaterialTheme.colorScheme.primary),
         label = {
             Text(
                 text = "Suggestion chip",
                 style = MaterialTheme.typography.labelMedium,
-                color = Purple40
+                color = MaterialTheme.colorScheme.primary
             )
         }
     )

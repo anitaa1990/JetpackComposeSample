@@ -31,7 +31,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Purple80
 
 @Composable
 fun ButtonScreen(modifier: Modifier = Modifier) {
@@ -101,7 +100,7 @@ fun TextButtonExample(onClick: () -> Unit) {
 fun CustomFilledButtonExample(onClick: () -> Unit) {
     Button(
         onClick = { onClick() },
-        colors = ButtonDefaults.buttonColors(containerColor = Purple80)
+        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)
     ) {
         Text("Button with custom background")
     }

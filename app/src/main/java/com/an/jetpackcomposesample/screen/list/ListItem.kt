@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,9 +19,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.an.jetpackcomposesample.ui.theme.Pink40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey40
 
 @Composable
 fun ListItem(
@@ -32,7 +30,7 @@ fun ListItem(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .background(Purple60)
+            .background(MaterialTheme.colorScheme.inverseOnSurface)
             .clickable { onClick(item) }
     ) {
         Image(
@@ -45,8 +43,8 @@ fun ListItem(
                 .clip(CircleShape)
         )
         Column {
-            Text(text = item.name, color = PurpleGrey40)
-            Text(text = item.desc, color = Pink40)
+            Text(text = item.name, color = MaterialTheme.colorScheme.onSecondaryContainer)
+            Text(text = item.desc, color = MaterialTheme.colorScheme.outline)
         }
     }
 }

@@ -4,14 +4,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.an.jetpackcomposesample.provider.Navigation
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun MainBottomBarScreen(
@@ -21,8 +20,8 @@ fun MainBottomBarScreen(
     Scaffold (
         bottomBar = {
             BottomAppBar(
-                containerColor = PurpleGrey80,
-                contentColor = Purple40,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
             ) {
                 BottomNavigationBar(navController = navController)
             }

@@ -28,10 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.Purple60
-import com.an.jetpackcomposesample.ui.theme.Purple80
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 @Composable
 fun TextScreen(modifier: Modifier = Modifier) {
@@ -62,12 +58,12 @@ fun TextHeading(heading: String) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Purple60)
+            .background(MaterialTheme.colorScheme.inverseOnSurface)
             .padding(6.dp)
     ) {
         Text(
             text = heading,
-            style = TextStyle(color = Purple40, fontSize = 18.sp),
+            style = TextStyle(color = MaterialTheme.colorScheme.primary, fontSize = 18.sp),
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Serif,
         )
@@ -91,11 +87,11 @@ fun BasicTextStyles() {
         )
         Text(
             text = "Text with Color",
-            style = TextStyle(color = Purple80)
+            style = TextStyle(color = MaterialTheme.colorScheme.secondaryContainer)
         )
         Text(
             text = "Text with Background Color",
-            style = TextStyle(background = PurpleGrey80)
+            style = TextStyle(background = MaterialTheme.colorScheme.primaryContainer)
         )
         Text(
             text = "Text with Shadow",
@@ -226,7 +222,7 @@ fun TextAlignStyles() {
             text = stringResource(id = R.string.text_screen_sample_txt_3),
             modifier = Modifier.padding(bottom = 8.dp),
             textAlign = TextAlign.Center,
-            style = TextStyle(color = Purple40)
+            style = TextStyle(color = MaterialTheme.colorScheme.primary)
         )
         Text(
             text = stringResource(id = R.string.text_screen_sample_txt_4),

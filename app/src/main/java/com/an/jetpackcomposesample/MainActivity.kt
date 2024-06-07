@@ -24,7 +24,24 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.an.jetpackcomposesample.component.ThemeSwitch
+import com.an.jetpackcomposesample.screen.ButtonScreen
+import com.an.jetpackcomposesample.screen.CardScreen
+import com.an.jetpackcomposesample.screen.CheckBoxScreen
+import com.an.jetpackcomposesample.screen.ColumnScreen
+import com.an.jetpackcomposesample.screen.DialogScreen
 import com.an.jetpackcomposesample.screen.DynamicThemeScreen
+import com.an.jetpackcomposesample.screen.ImageScreen
+import com.an.jetpackcomposesample.screen.ProgressBarScreen
+import com.an.jetpackcomposesample.screen.RadioButtonScreen
+import com.an.jetpackcomposesample.screen.RowScreen
+import com.an.jetpackcomposesample.screen.ScaffoldScreen
+import com.an.jetpackcomposesample.screen.SmallerComponentScreen
+import com.an.jetpackcomposesample.screen.TextFieldScreen
+import com.an.jetpackcomposesample.screen.TextScreen
+import com.an.jetpackcomposesample.screen.bottombar.MainBottomBarScreen
+import com.an.jetpackcomposesample.screen.grid.GridScreen
+import com.an.jetpackcomposesample.screen.list.ListScreen
+import com.an.jetpackcomposesample.screen.tabs.MainTabScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
 class MainActivity : ComponentActivity() {

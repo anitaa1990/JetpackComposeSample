@@ -18,9 +18,10 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.SecondaryIndicator
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,9 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.an.jetpackcomposesample.ui.theme.Pink40
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -61,13 +59,13 @@ fun TabLayout(
         divider = {
             Spacer(modifier = Modifier.height(5.dp))
         },
-        containerColor = PurpleGrey80,
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
         indicator = { tabPositions ->
             // we are specifying the styling for tab indicator by specifying color for the selected tab indicator
             if (pagerState.currentPage < tabPositions.size) {
-                TabRowDefaults.Indicator(
+                SecondaryIndicator(
                     modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage]),
-                    color = Purple40
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
         },
@@ -86,8 +84,8 @@ fun TabLayout(
                             contentDescription = "Tab layout icon"
                         )
                     },
-                    unselectedContentColor = Pink40,
-                    selectedContentColor = Purple40,
+                    unselectedContentColor = MaterialTheme.colorScheme.outline,
+                    selectedContentColor = MaterialTheme.colorScheme.primary,
 
                     // Uncomment if you don't want Text to the tab
                     text = {
