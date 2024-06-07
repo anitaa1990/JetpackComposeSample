@@ -24,24 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.an.jetpackcomposesample.component.ThemeSwitch
-import com.an.jetpackcomposesample.screen.ButtonScreen
-import com.an.jetpackcomposesample.screen.CardScreen
-import com.an.jetpackcomposesample.screen.CheckBoxScreen
-import com.an.jetpackcomposesample.screen.ColumnScreen
-import com.an.jetpackcomposesample.screen.DialogScreen
 import com.an.jetpackcomposesample.screen.DynamicThemeScreen
-import com.an.jetpackcomposesample.screen.ImageScreen
-import com.an.jetpackcomposesample.screen.ProgressBarScreen
-import com.an.jetpackcomposesample.screen.RadioButtonScreen
-import com.an.jetpackcomposesample.screen.RowScreen
-import com.an.jetpackcomposesample.screen.ScaffoldScreen
-import com.an.jetpackcomposesample.screen.SmallerComponentScreen
-import com.an.jetpackcomposesample.screen.TextFieldScreen
-import com.an.jetpackcomposesample.screen.TextScreen
-import com.an.jetpackcomposesample.screen.bottombar.MainBottomBarScreen
-import com.an.jetpackcomposesample.screen.grid.GridScreen
-import com.an.jetpackcomposesample.screen.list.ListScreen
-import com.an.jetpackcomposesample.screen.tabs.MainTabScreen
+import com.an.jetpackcomposesample.screen.IntroScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -93,7 +77,7 @@ fun MainScreen(
             )
         },
     ) { innerPadding ->
-//        IntroScreen(Modifier.padding(innerPadding))
+        IntroScreen(Modifier.padding(innerPadding))
 //        RowScreen(Modifier.padding(innerPadding))
 //        ColumnScreen(Modifier.padding(innerPadding))
 //        TextScreen(Modifier.padding(innerPadding))
@@ -111,7 +95,7 @@ fun MainScreen(
 //        SmallerComponentScreen(Modifier.padding(innerPadding))
 //        MainTabScreen(Modifier.padding(innerPadding))
 //        MainBottomBarScreen(navController, Modifier.padding(innerPadding))
-        DynamicThemeScreen(Modifier.padding(innerPadding))
+//        DynamicThemeScreen(Modifier.padding(innerPadding))
     }
 }
 
