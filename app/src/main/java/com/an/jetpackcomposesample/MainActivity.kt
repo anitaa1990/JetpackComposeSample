@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -16,10 +17,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.an.jetpackcomposesample.screen.bottombar.MainBottomBarScreen
+import com.an.jetpackcomposesample.screen.DynamicThemeScreen
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
-import com.an.jetpackcomposesample.ui.theme.Purple40
-import com.an.jetpackcomposesample.ui.theme.PurpleGrey80
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +39,8 @@ fun MainScreen(navController: NavHostController) {
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = PurpleGrey80,
-                    titleContentColor = Purple40,
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
                     Text(stringResource(id = R.string.app_name))
@@ -67,7 +66,9 @@ fun MainScreen(navController: NavHostController) {
 //        CheckBoxScreen(Modifier.padding(innerPadding))
 //        SmallerComponentScreen(Modifier.padding(innerPadding))
 //        MainTabScreen(Modifier.padding(innerPadding))
-        MainBottomBarScreen(navController, Modifier.padding(innerPadding))
+//        MainBottomBarScreen(navController, Modifier.padding(innerPadding))
+        DynamicThemeScreen(Modifier.padding(innerPadding))
+//         SamplePaymentScreen(Modifier.padding(innerPadding))
     }
 }
 
@@ -77,3 +78,4 @@ fun MainScreenPreview() {
     val navController = rememberNavController()
     MainScreen(navController)
 }
+
