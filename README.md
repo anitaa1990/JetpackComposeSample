@@ -9,7 +9,7 @@
 - [Jetpack Compose Preview](#jetpack-compose-preview)
 - [Rows](#rows)
 - [Columns](#columns)
-- [Box](#box)
+- [Box](#Box)
 - [Compose Modifiers](#compose-modifiers)
 - [Text](#text)
 - [Button](#button)
@@ -102,6 +102,7 @@ private fun RowStyle() {
     }
 }
 ```
+
 ### Columns
 A column is a vertical layout component in Jetpack Compose. It is used to position UI elements vertically. You can add any number of children to a column, and they will be laid out vertically in the order they were added. By default, the column will take up as much vertical space as possible, and the children will be sized to fit within the column’s boundaries.
 
@@ -126,6 +127,41 @@ private fun ColumnStyle() {
     }
 }
 ```
+
+### Box
+A box is a layout component that allows you to position a single UI element anywhere within its boundaries. You can add any UI element to a box and position it by specifying its alignment within the box.
+```
+Box(
+   modifier = Modifier.size(size),
+   contentAlignment = Alignment.Center
+) {
+    Text("Center", Modifier.align(Alignment.Center))
+    Text("Top Start", Modifier.align(Alignment.TopStart))
+    Text("Top End", Modifier.align(Alignment.TopEnd))
+    Text("Bottom Start", Modifier.align(Alignment.BottomStart))
+    Text("Bottom End", Modifier.align(Alignment.BottomEnd))
+ }
+```
+
+### Compose Modifiers
+Modifier elements decorate or add behavior to Compose UI elements. For example, backgrounds, padding and click event listeners decorate or add behavior to rows, text or buttons. Modifiers are standard Kotlin objects. We can create a modifier by calling one of the `Modifier` class functions.
+```
+Text("Text with green background color",
+    modifier = Modifier
+                .background(color = Color.Green)) // background color
+                .padding(16.dp) // inner padding
+                .width(200.dp) // define width & height separately
+                .height(300.dp)
+                .size(width = 250.dp, height = 100.dp) // OR add size
+                .alpha(0.5f) // 50% opacity
+                .rotate(45f) // Sets the degrees the view is rotated around the center of the composable.
+                .scale(scaleX = 2f, scaleY = 3f) // Scale the contents of the composable by the following scale factors along the horizontal and vertical axis respectively.
+                .weight(1f) // you can specify a size ratio between multiple views
+                .border(2.dp,Color.Red) // adds border to the text
+                .clip(RoundedCornerShape(25.dp)) // allows you to clip the existing shape
+```
+
+
 
 Credits
 -----------------
