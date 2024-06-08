@@ -31,6 +31,15 @@ fun IntroScreen(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    /**
+     * Column is a composable that places its children in a vertical sequence. You can think of it
+     * similar to a LinearLayout with the vertical orientation. In addition, we also provide the column
+     * with a modifier.
+     *
+     * You can think of Modifiers as implementations of the decorators pattern that are used to
+     * modify the composable that its applied to. In this example, we configure the Column to
+     * have a padding of 12dp and scroll vertically.
+     */
     Column(
         modifier = modifier
             .padding(12.dp)

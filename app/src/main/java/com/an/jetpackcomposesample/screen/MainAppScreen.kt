@@ -40,10 +40,24 @@ fun MainApp(
     val currentScreen = MainAppScreen.valueOf(
         backStackEntry?.destination?.route ?: MainAppScreen.Intro.name
     )
-    // get the current theme set by the app
+    /**
+     * Reacting to state changes is the core behavior of Compose. You will notice a couple new
+     * keywords that are compose related - remember & mutableStateOf. remember{} is a helper
+     * composable that calculates the value passed to it only during the first composition. It then
+     * returns the same value for every subsequent composition. Next, you can think of
+     * mutableStateOf as an observable value where updates to this variable will redraw all
+     * the composable functions that access it. We don't need to explicitly subscribe at all. Any
+     * composable that reads its value will be recomposed any time the value changes. This ensures
+     * that only the composables that depend on this will be redraw while the rest remain unchanged.
+     * This ensures efficiency and is a performance optimization.
+     */
     var darkTheme by remember { mutableStateOf(false) }
     JetpackComposeSampleTheme(darkTheme = darkTheme) {
         Scaffold(
+            /**
+             * TopAppBar is a pre-defined composable that's placed at the top of the screen. It has
+             * slots for a title, navigation icon, and actions. Also known as the action bar.
+             */
             topBar = {
                 MainAppBar(
                     currentScreen = currentScreen,
@@ -63,6 +77,12 @@ fun MainApp(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+/**
+ * We represent a Composable function by annotating it with the @Composable annotation. Composable
+ * functions can only be called from within the scope of other composable functions. We should
+ * think of composable functions to be similar to lego blocks - each composable function is in turn
+ * built up of smaller composable functions.
+ */
 @Composable
 fun MainAppBar(
     currentScreen: MainAppScreen,

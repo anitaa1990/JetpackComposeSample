@@ -119,6 +119,10 @@ fun RangeSliderExample() {
     }
 }
 
+/**
+ * A pre-defined composable that's capable of rendering a switch. It honors the Material
+ * design specification.
+ */
 @Composable
 fun SwitchExample() {
     var checked by remember { mutableStateOf(true) }

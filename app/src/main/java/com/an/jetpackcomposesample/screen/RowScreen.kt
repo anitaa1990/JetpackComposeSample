@@ -19,6 +19,10 @@ import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
+/**
+ * Row is a composable that places its children in a horizontal sequence. You can think of it as
+ * similar to a LinearLayout with the horizontal orientation.
+ */
 @Composable
 fun RowScreen(modifier: Modifier = Modifier) {
     Column(

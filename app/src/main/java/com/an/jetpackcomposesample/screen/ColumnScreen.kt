@@ -27,6 +27,11 @@ import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
+/**
+ * Column is a composable that places its children in a vertical sequence. You can think of it
+ * similar to a LinearLayout with the vertical orientation. In addition, we also provide the column
+ * with a modifier.
+ */
 @Composable
 fun ColumnScreen(modifier: Modifier = Modifier) {
     val displayedTextList = listOf(

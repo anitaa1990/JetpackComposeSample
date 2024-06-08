@@ -32,6 +32,11 @@ import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
+/**
+ * Card composable is a predefined composable that is meant to represent the card surface as
+ * specified by the Material Design specification. We also configure it to have rounded
+ * corners and apply a modifier.
+ */
 @Composable
 fun CardScreen(modifier: Modifier = Modifier) {
     Column(

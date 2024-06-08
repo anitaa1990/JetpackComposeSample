@@ -32,6 +32,10 @@ import androidx.compose.ui.unit.dp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
+/**
+ * Button is a pre-defined Material Design implementation of a contained button -
+ * https://material.io/design/components/buttons.html#contained-button.
+ */
 @Composable
 fun ButtonScreen(modifier: Modifier = Modifier) {
     Column(
@@ -41,6 +45,10 @@ fun ButtonScreen(modifier: Modifier = Modifier) {
             .padding(start = 12.dp, top = 12.dp, end = 12.dp),
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
+        /**
+         * The Button composable allows you to provide child composables that inherit this button
+         * functionality.
+         */
         Text(
             text = stringResource(R.string.button_screen_text),
             style = MaterialTheme.typography.titleLarge,

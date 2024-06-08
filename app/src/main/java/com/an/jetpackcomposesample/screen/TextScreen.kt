@@ -29,6 +29,10 @@ import androidx.compose.ui.unit.sp
 import com.an.jetpackcomposesample.R
 import com.an.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
+/**
+ * The Text composable is pre-defined by the Compose UI library; you can use this composable to
+ * render text on the screen
+ */
 @Composable
 fun TextScreen(modifier: Modifier = Modifier) {
     Column(
