@@ -100,7 +100,7 @@ fun ColumnScreen(modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .padding(top = 8.dp),
             horizontalArrangement = Arrangement.SpaceEvenly) {
-            TonalButtonStyle(stringResource(id = R.string.column_screen_btn_5)) {
+            TonalButtonStyle(stringResource(id = R.string.column_screen_btn_6)) {
                 displayedText = displayedTextList[5]
                 displayedArrangement = customPairList[5].first
             }
