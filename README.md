@@ -161,6 +161,33 @@ Text("Text with green background color",
                 .clip(RoundedCornerShape(25.dp)) // allows you to clip the existing shape
 ```
 
+### Text
+`Text` is a central piece of any UI, and Jetpack Compose makes it easier to display or write text. Attributes of the `Text` composable include:
+```
+@Composable
+fun Text(
+    text: String,                                        // the text to be displayed
+    modifier: Modifier = Modifier,                       // the Modifier to be applied to this layout node
+    color: Color = Color.Unspecified,                    // Color to apply to the text
+    fontSize: TextUnit = TextUnit.Unspecified,           // the size of glyphs to use when painting the text
+    fontStyle: FontStyle? = null,                        // the typeface variant to use when drawing the letters (e.g., italic)
+    fontWeight: FontWeight? = null,                      // the typeface thickness to use when painting the text
+    fontFamily: FontFamily? = null,                      // the font family to be used when rendering the text
+    letterSpacing: TextUnit = TextUnit.Unspecified,      // the amount of space to add between each letter
+    textDecoration: TextDecoration? = null,              // the decorations to paint on the text (e.g., an underline)  
+    textAlign: TextAlign? = null,                        // the alignment of the text within the lines of the paragraph
+    lineHeight: TextUnit = TextUnit.Unspecified,         // line height for the Paragraph in TextUnit unit
+    overflow: TextOverflow = TextOverflow.Clip,          // defines how visual overflow should be handled.  
+    softWrap: Boolean = true,                            // whether the text should break at soft line breaks.
+    maxLines: Int = Int.MAX_VALUE,                       // An optional maximum number of lines for the text to span, wrapping if necessary 
+    minLines: Int = 1,                                   // The minimum height in terms of minimum number of visible lines.  
+    onTextLayout: ((TextLayoutResult) -> Unit)? = null,  // callback that is executed when a new text layout is calculated.   
+    style: TextStyle = LocalTextStyle.current            // style configuration for the text such as color, font, line height etc.
+)
+```
+| Example                                                                              | Preview                                                                                                   |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [TextScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextScreen.kt) | <img src ="media/text/img_text_1.gif" width=300><img src ="/media/text/img_text_2.gif" width=300> |
 
 
 Credits
