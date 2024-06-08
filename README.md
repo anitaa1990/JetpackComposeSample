@@ -370,6 +370,54 @@ LazyColumn(
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | [ListScreen](app/src/main/java/com/an/jetpackcomposesample/screen/list/ListScreen.kt) | <img src ="media/list/img_list_1.png" width=300><img src ="/media/list/img_list_2.png" width=300> |
 
+### Scaffold
+The `Scaffold` composable provides a straightforward API you can use to quickly assemble your app's structure according to Material Design guidelines. `Scaffold` accepts several composables as parameters.
+```
+@Composable
+fun Scaffold(
+    modifier: Modifier = Modifier,                              // the modifier to apply to this layout. 
+    topBar: @Composable () -> Unit = {},                        // top app bar of the screen
+    bottomBar: @Composable () -> Unit = {},                     // bottom bar of the screen
+    snackbarHost: @Composable () -> Unit = {},                  // component to host Snackbars that are pushed to be shown via SnackbarHostState.showSnackbar
+    floatingActionButton: @Composable () -> Unit = {},              // Main action button of the screen
+    floatingActionButtonPosition: FabPosition = FabPosition.End,        // position of the FAB on the screen
+    containerColor: Color = MaterialTheme.colorScheme.background,       // the color used for the background of this scaffold.
+    contentColor: Color = contentColorFor(containerColor),              // the preferred color for content inside this scaffold.
+    contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,       // window insets to be passed to content slot via PaddingValues params.
+    content: @Composable (PaddingValues) -> Unit                // content of the screen
+)
+    
+// Example
+Scaffold(
+        bottomBar = {
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
+            ) {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    text = "Bottom app bar",
+                )
+            }
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.primary,
+                onClick = { Toast.makeText(context, "Clicked!", Toast.LENGTH_SHORT).show() }
+            ) {
+                Icon(Icons.Default.Add, contentDescription = "Add")
+            }
+        }
+)    
+```
+
+| Example                                                                                          | Preview                                                                                                           |
+|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [ScaffoldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ScaffoldScreen.kt) | <img src ="media/scaffold/img_scaffold_1.png" width=300><img src ="/media/scaffold/img_scaffold_2.png" width=300> |
+
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
