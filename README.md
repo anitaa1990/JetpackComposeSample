@@ -249,6 +249,54 @@ fun SimpleImageExample() {
 |------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | [ImageScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ImageScreen.kt) | <img src ="media/image/img_image_1.gif" width=300><img src ="/media/image/img_image_2.gif" width=300> |
 
+### TextField
+`TextField` allows users to enter and modify text. The different attributes of `TextField` are:
+```
+@Composable
+fun TextField(
+    value: TextFieldValue,                      // the input value to be shown in the text field
+    onValueChange: (TextFieldValue) -> Unit,    // the callback that is triggered when user enters any value
+    modifier: Modifier = Modifier,              // defines the modifier for the TextField
+    enabled: Boolean = true,                    // controls the enabled state of this text field
+    readOnly: Boolean = false,                  // controls the editable state of the text field
+    textStyle: TextStyle = LocalTextStyle.current,      // the style to be applied to the input text.
+    label: @Composable (() -> Unit)? = null,            // the optional label to be displayed inside the text field container.
+    placeholder: @Composable (() -> Unit)? = null,      // the optional placeholder to be displayed when the text field is empty
+    leadingIcon: @Composable (() -> Unit)? = null,      // the optional leading icon to be displayed at the beginning of the text field container
+    trailingIcon: @Composable (() -> Unit)? = null,     // the optional trailing icon to be displayed at the end of the text field container
+    prefix: @Composable (() -> Unit)? = null,           // the optional prefix to be displayed before the input text in the text field
+    suffix: @Composable (() -> Unit)? = null,           // the optional suffix to be displayed after the input text in the text field
+    supportingText: @Composable (() -> Unit)? = null,   // the optional supporting text to be displayed below the text field
+    isError: Boolean = false,                                       // indicates if the text field's current value is in error state.
+    visualTransformation: VisualTransformation = VisualTransformation.None,             // transforms the visual representation of the input value
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,                         // software keyboard options that contains configuration such as KeyboardType and ImeAction
+    keyboardActions: KeyboardActions = KeyboardActions.Default,                         // when the input service emits an IME action, the corresponding callback is called.
+    singleLine: Boolean = false,                                    // this text field becomes a single horizontally scrolling text field instead of wrapping onto multiple lines.
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,           // the maximum height in terms of maximum number of visible lines
+    minLines: Int = 1,                                              // the minimum height in terms of minimum number of visible lines
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },     
+    shape: Shape = TextFieldDefaults.shape,                         // defines the shape of this text field's container
+    colors: TextFieldColors = TextFieldDefaults.colors()            // [TextFieldColors] that will be used to resolve the colors used for this text field in different states.
+)
+
+// Example
+TextField(
+    value = password,
+    onValueChange = { password = it },
+    label = { Text("Enter password") },
+    visualTransformation = PasswordVisualTransformation(),
+    keyboardOptions = KeyboardOptions(
+    keyboardType = KeyboardType.Password,
+    imeAction = ImeAction.Done
+    )
+) 
+```
+
+| Example                                                                                    | Preview                                                                                                               |
+|--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [TextFieldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextFieldScreen.kt) | <img src ="media/textfield/img_textfield_1.png" width=300><img src ="/media/textfield/img_textfield_2.png" width=300> |
+
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
