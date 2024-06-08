@@ -33,7 +33,7 @@
 - [BottomBar](#bottombar)
 - [Dynamic themes](#dynamic-themes)
 - [Switching between dark and light mode](#switching-between-dark-mode-and-light-mode)
-- [Navigation in Compose](#nacigation-in-compose)
+- [Navigation in Compose](#navigation-in-compose)
 
 ### What is Jetpack Compose?
 Jetpack Compose is Android’s **recommended** modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Jetpack Compose is _declarative programming_, which means you can describe your user interface by invoking a set of composables, which is vastly different from the traditional way of imperative UI design.
@@ -78,31 +78,55 @@ Compose comes with this nifty feature that lets you preview each component in th
 <img src="https://github.com/anitaa1990/JetpackComposeSample/blob/master/media/img_compose_preview.png">
 
 ### Rows
-A row is a horizontal layout component in Jetpack Compose. It is used to position UI elements horizontally. You can add any number of children to a row, and they will be laid out horizontally in the order they were added. By default, the row will take up as much horizontal space as possible, and the children will be sized to fit within the row’s boundaries.
+A `Row` is a horizontal layout component in Jetpack Compose. It is used to position UI elements horizontally. You can add any number of children to a row, and they will be laid out horizontally in the order they were added. By default, the row will take up as much horizontal space as possible, and the children will be sized to fit within the row’s boundaries.
 
-<img src="https://github.com/anitaa1990/JetpackComposeSample/blob/master/media/row/img_row_1.png" width="500"> <img src="https://github.com/anitaa1990/JetpackComposeSample/blob/master/media/row/img_row_2.png" width="500">
+|Example|Preview|
+|-------|-------|
+|[RowScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RowScreen.kt)|<img src ="media/row/img_row_1.png" width=300><img src ="/media/row/img_row_2.png" width=300>|
 
 ```
 @Composable
-private fun RowStyle(arrangement: Arrangement.Horizontal) {
+private fun RowStyle() {
     Row(
         modifier = Modifier
+            // will set the min and max width of the composble to the maximum allowed by the container
             .fillMaxWidth()
             .padding(12.dp)
             .background(MaterialTheme.colorScheme.inverseOnSurface, shape = RoundedCornerShape(10.dp)),
-        horizontalArrangement  =  arrangement) {
-        Text(
-            text = "A"
-        )
-        Text(
-            text = "B"
-        )
-        Text(
-            text = "C"
-        )
+        // The horizontalArrangement parameter controls the way free space is distributed between items.
+        horizontalArrangement = Arrangement.Start)
+{
+        Text(text = "A")
+        Text(text = "B")
+        Text(text = "C")
     }
 }
 ```
+### Columns
+A column is a vertical layout component in Jetpack Compose. It is used to position UI elements vertically. You can add any number of children to a column, and they will be laid out vertically in the order they were added. By default, the column will take up as much vertical space as possible, and the children will be sized to fit within the column’s boundaries.
+
+| Example                                                                              | Preview                                                                                                   |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [ColumnScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ColumnScreen.kt) | <img src ="media/column/img_column_1.gif" width=300><img src ="/media/column/img_column_2.gif" width=300> |
+
+```
+@Composable
+private fun ColumnStyle() {
+    Column(modifier = Modifier
+        .fillMaxHeight(0.5f)
+        .fillMaxWidth()
+        .padding(12.dp)
+        .alpha(1f)
+        .background(MaterialTheme.colorScheme.inverseOnSurface, shape = RoundedCornerShape(10.dp)),
+        verticalArrangement = arrangement
+    ) {
+        Text(text = "A")
+        Text(text = "B")
+        Text(text = "C")
+    }
+}
+```
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
