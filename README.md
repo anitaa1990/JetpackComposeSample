@@ -190,8 +190,10 @@ fun Text(
 | [TextScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextScreen.kt) | <img src ="media/text/img_text_1.gif" width=300><img src ="/media/text/img_text_2.gif" width=300> |
 
 ### Buttons
-Buttons are fundamental components that allow the user to trigger a defined action. In Jetpack Compose, you need to give two arguments for buttons. The first argument as `onClick` callback and another one is your button `text` element. You can add a `Text`-Composable or any other Composable as child elements of the Button. There are five types of buttons.  
-<img src ="media/img_button_types.png" width=300>
+Buttons are fundamental components that allow the user to trigger a defined action. In Jetpack Compose, you need to give two arguments for buttons. The first argument as `onClick` callback and another one is your button `text` element. You can add a `Text`-Composable or any other Composable as child elements of the Button. There are five types of buttons.
+
+![](media/img_button_types.png)
+*[Reference](https://developer.android.com/develop/ui/compose/components/button)*
 
 ```
 @Composable
@@ -214,6 +216,38 @@ fun Button(
 | Example                                                                              | Preview                                                                                                   |
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [ButtonScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ButtonScreen.kt) | <img src ="media/button/img_button_1.png" width=300><img src ="/media/button/img_button_2.png" width=300> |
+
+### Image
+We can use the `Image` composable to display a graphic on screen. The different attributes of `Image` are:
+```
+@Composable
+fun Image(
+    painter: Painter,     // loads a drawable from resources. Use painterResource and pass a resource id
+    contentDescription: String?, // to give description about the image
+    modifier: Modifier = Modifier, // defines the modifier for the image
+    alignment: Alignment = Alignment.Center,
+    contentScale: ContentScale = ContentScale.Fit,
+    alpha: Float = DefaultAlpha,
+    colorFilter: ColorFilter? = null
+)
+
+// Example
+@Composable
+fun SimpleImageExample() {
+    // Image is a pre-defined composable that lays out and draws a given [ImageBitmap]
+    Image(
+        painter = painterResource(id = R.drawable.ic_image),
+        contentDescription = stringResource(id = R.string.image_screen_content_desc),
+        modifier = Modifier
+            .padding(10.dp)
+            .size(120.dp)
+    )
+}
+```
+
+| Example                                                                            | Preview                                                                                               |
+|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [ImageScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ImageScreen.kt) | <img src ="media/image/img_image_1.gif" width=300><img src ="/media/image/img_image_2.gif" width=300> |
 
 Credits
 -----------------

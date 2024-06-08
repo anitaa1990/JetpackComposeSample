@@ -31,6 +31,10 @@ fun ListScreen(modifier: Modifier = Modifier) {
         ListModel(id = 12, image = R.drawable.ic_image, name = "Margaret Vo", desc = "Marketing Lead")
     )
 
+    /**
+     * LazyColumn is a vertically scrolling list that only composes and lays out the currently
+     * visible items. This is very similar to what RecyclerView tries to do as well.
+     */
     LazyColumn(
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
@@ -38,6 +42,8 @@ fun ListScreen(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .wrapContentHeight()
     ) {
+        // items is a DSL available in the LazyColumn scope. This allows you to render a composable
+        // for a single element in the list.
         items(list.size) {
             ListItem(item = list[it], onClick = { listModel ->
                 Toast.makeText(context, listModel.name +  " clicked!", Toast.LENGTH_SHORT).show()

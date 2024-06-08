@@ -69,6 +69,7 @@ fun ImageScreen(modifier: Modifier = Modifier) {
 }
 @Composable
 fun SimpleImageExample() {
+    // Image is a pre-defined composable that lays out and draws a given [ImageBitmap]
     Image(
         painter = painterResource(id = R.drawable.ic_image),
         contentDescription = stringResource(id = R.string.image_screen_content_desc),
