@@ -12,7 +12,7 @@
 - [Box](#box)
 - [Compose Modifiers](#compose-modifiers)
 - [Text](#text)
-- [Button](#button)
+- [Button](#buttons)
 - [Image](#image)
 - [TextField](#textfield)
 - [Lazy Grids](#lazy-grids)
@@ -296,7 +296,7 @@ TextField(
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | [TextFieldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextFieldScreen.kt) | <img src ="media/textfield/img_textfield_1.png" width=300><img src ="/media/textfield/img_textfield_2.png" width=300> |
 
-### Lazy Grid
+### Lazy Grids
 Vertical staggered grid layout that composes and lays out only items currently visible on screen. Attributes of `Grid` include:
 ```
 @Composable
@@ -332,6 +332,43 @@ LazyVerticalStaggeredGrid(
 | Example                                                                               | Preview                                                                                           |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | [GridScreen](app/src/main/java/com/an/jetpackcomposesample/screen/grid/GridScreen.kt) | <img src ="media/grid/img_grid_1.gif" width=300> |
+
+### Lazy Lists
+Compose provides a set of components which only compose and lay out items which are visible in the component’s viewport. These components include `LazyColumn` (Vertical `RecyclerView`) and `LazyRow` (Horizontal `RecyclerView`). In LazyColumn you can add an `item()` or `items()`.
+```
+@Composable
+fun LazyColumn(
+    modifier: Modifier = Modifier,                                          // the modifier to apply to this layout.
+    state: LazyListState = rememberLazyListState(),                         // the state object to be used to control or observe the list's state.
+    contentPadding: PaddingValues = PaddingValues(0.dp),                    // a padding around the whole content.
+    reverseLayout: Boolean = false,                                         // reverse the direction of scrolling and layout.
+    verticalArrangement: Arrangement.Vertical =
+        if (!reverseLayout) Arrangement.Top else Arrangement.Bottom,        // The vertical arrangement of the layout's children. This allows to add a spacing between items and specify the arrangement of the items when we have not enough of them to fill the whole minimum size.
+    horizontalAlignment: Alignment.Horizontal = Alignment.Start,            // the horizontal alignment applied to the items.
+    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),      // logic describing fling behavior.
+    userScrollEnabled: Boolean = true,                                      // whether the scrolling via the user gestures or accessibility actions is allowed. 
+    content: LazyListScope.() -> Unit                                       // a block which describes the content 
+)
+
+// Example
+LazyColumn(
+     contentPadding = PaddingValues(16.dp),
+     verticalArrangement = Arrangement.spacedBy(6.dp),
+     modifier = modifier.fillMaxSize().wrapContentHeight()
+) {
+        // items is a DSL available in the LazyColumn scope. This allows you to render a composable
+        // for a single element in the list.
+        items(list.size) {
+            ListItem(item = list[it], onClick = { listModel ->
+                Toast.makeText(context, listModel.name +  " clicked!", Toast.LENGTH_SHORT).show()
+            })
+        }
+}
+```
+
+| Example                                                                               | Preview                                                                                           |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [ListScreen](app/src/main/java/com/an/jetpackcomposesample/screen/list/ListScreen.kt) | <img src ="media/list/img_list_1.png" width=300><img src ="/media/list/img_list_2.png" width=300> |
 
 Credits
 -----------------
