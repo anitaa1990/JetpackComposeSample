@@ -9,7 +9,7 @@
 - [Jetpack Compose Preview](#jetpack-compose-preview)
 - [Rows](#rows)
 - [Columns](#columns)
-- [Box](#Box)
+- [Box](#box)
 - [Compose Modifiers](#compose-modifiers)
 - [Text](#text)
 - [Button](#button)
@@ -189,6 +189,31 @@ fun Text(
 |--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [TextScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextScreen.kt) | <img src ="media/text/img_text_1.gif" width=300><img src ="/media/text/img_text_2.gif" width=300> |
 
+### Buttons
+Buttons are fundamental components that allow the user to trigger a defined action. In Jetpack Compose, you need to give two arguments for buttons. The first argument as `onClick` callback and another one is your button `text` element. You can add a `Text`-Composable or any other Composable as child elements of the Button. There are five types of buttons.  
+<img src ="media/img_button_types.png" width=300>
+
+```
+@Composable
+fun Button(
+    onClick: () -> Unit,                                              // called when this button is clicked
+    modifier: Modifier = Modifier,                                    // the [Modifier] to be applied to this button  
+    enabled: Boolean = true,                                          // controls the enabled state of this button.
+    shape: Shape = ButtonDefaults.shape,                              // defines the shape of this button's container, border (when [border] is not null), and shadow (when using [elevation])
+    colors: ButtonColors = ButtonDefaults.buttonColors(),             // used to resolve the colors for this button in different states
+    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),   // used to resolve the elevation for this button in different states. This controls the size of the shadow below the button.
+    border: BorderStroke? = null,                                    // the border to draw around the container of this button
+    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,   // the spacing values to apply internally between the container and the content
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }, 
+    content: @Composable RowScope.() -> Unit
+) {
+    // Content of the Button
+    Text(text = "Clicked me!")
+}
+```
+| Example                                                                              | Preview                                                                                                   |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [ButtonScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ButtonScreen.kt) | <img src ="media/button/img_button_1.png" width=300><img src ="/media/button/img_button_2.png" width=300> |
 
 Credits
 -----------------
