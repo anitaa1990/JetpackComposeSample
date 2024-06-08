@@ -418,6 +418,37 @@ Scaffold(
 | [ScaffoldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ScaffoldScreen.kt) | <img src ="media/scaffold/img_scaffold_1.png" width=300><img src ="/media/scaffold/img_scaffold_2.png" width=300> |
 
 
+### Card
+`Card` composable is a predefined composable that is meant to represent the card surface as specified by the Material Design specification. We also configure it to have rounded corners and apply a modifier. Attributes of `Card` composable includes:
+```
+@Composable
+fun Card(
+    modifier: Modifier = Modifier,                    // the Modifier to be applied to this card
+    shape: Shape = CardDefaults.shape,                // defines the shape of this card's container, border (when border is not null), and shadow (when using elevation)
+    colors: CardColors = CardDefaults.cardColors(),    //  CardColors that will be used to resolve the colors used for this card in different states.
+    elevation: CardElevation = CardDefaults.cardElevation(),        // This controls the size of the shadow below the card.
+    border: BorderStroke? = null,                      // the border to draw around the container of this card  
+    content: @Composable ColumnScope.() -> Unit        // define content of the card
+)
+
+// Example
+Card(
+    elevation = CardDefaults.cardElevation(8.dp),
+    modifier = paddingModifier
+            .fillMaxWidth()
+            .height(120.dp)
+    ) {
+        Text(text = "Simple Card ",
+            modifier = paddingModifier)
+    }
+}
+```
+
+| Example                                                                                          | Preview                                                                                                           |
+|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [CardScreen](app/src/main/java/com/an/jetpackcomposesample/screen/CardScreen.kt) | <img src ="media/card/img_card_1.png" width=300><img src ="/media/card/img_card_2.png" width=300> |
+
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
