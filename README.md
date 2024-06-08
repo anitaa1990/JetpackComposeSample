@@ -296,6 +296,42 @@ TextField(
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | [TextFieldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/TextFieldScreen.kt) | <img src ="media/textfield/img_textfield_1.png" width=300><img src ="/media/textfield/img_textfield_2.png" width=300> |
 
+### Lazy Grid
+Vertical staggered grid layout that composes and lays out only items currently visible on screen. Attributes of `Grid` include:
+```
+@Composable
+fun LazyVerticalStaggeredGrid(
+    columns: StaggeredGridCells,                                        // description of the size and number of staggered grid columns.
+    modifier: Modifier = Modifier,                                      // modifier to apply to the layout.
+    state: LazyStaggeredGridState = rememberLazyStaggeredGridState(),   // state object that can be used to control and observe staggered grid state.
+    contentPadding: PaddingValues = PaddingValues(0.dp),                // padding around the content.
+    reverseLayout: Boolean = false,                                     // reverse the direction of scrolling and layout. When `true`, items are laid out in the reverse order
+    verticalItemSpacing: Dp = 0.dp,                                     // vertical spacing between items    
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.spacedBy(0.dp),         // arrangement specifying horizontal spacing between items.
+    flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),                  // logic responsible for handling fling.
+    userScrollEnabled: Boolean = true,                                  // whether scroll with gestures or accessibility actions are allowed.
+    content: LazyStaggeredGridScope.() -> Unit                          // a lambda describing the staggered grid content. Inside this block you can use [LazyStaggeredGridScope.items] to present list of items
+)
+
+// Example
+LazyVerticalStaggeredGrid(
+    columns = StaggeredGridCells.Adaptive(minSize = 180.dp),
+    // applied to outside edges of our content – creating some visual space between the edges of the content and the container
+    // contentPadding = PaddingValues(16.dp),
+    // horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        val gridList = (1..20).map {
+            GridModel(it, getRandomColor(), getRandomHeight(), getRandomIcon())
+        }
+        items(gridList.size) {
+            GridItem(modifier, gridList[it])
+        }
+ }
+```
+
+| Example                                                                               | Preview                                                                                           |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [GridScreen](app/src/main/java/com/an/jetpackcomposesample/screen/grid/GridScreen.kt) | <img src ="media/grid/img_grid_1.gif" width=300> |
 
 Credits
 -----------------
