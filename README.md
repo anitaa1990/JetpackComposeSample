@@ -721,7 +721,7 @@ RadioButton(
 | Example                                                                                        | Preview                                                                                               |
 |------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | [RadioButtonScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RadioButtonScreen.kt) | <img src ="media/radio/img_radio_1.png" width=300><img src ="/media/radio/img_radio_2.png" width=300> |
- 
+
 
 ### CheckBox
 Checkboxes allow users to select one or more items from a set. Checkboxes can turn an option on or off. Attributes of `CheckBox` include:
@@ -786,7 +786,7 @@ Slider(
 | [SmallerComponentScreen](app/src/main/java/com/an/jetpackcomposesample/screen/SmallerComponentScreen.kt) | <img src ="media/slider/img_slider_1.png" width=300><img src ="/media/slider/img_slider_2.png" width=300> |
 
 ### Switch
-A pre-defined composable that's capable of rendering a switch. 
+A pre-defined composable that's capable of rendering a switch.
 ```
 @Composable
 fun Switch(
@@ -828,7 +828,7 @@ Chips help people enter information, make selections, filter content, or trigger
 - Filter: Allows users to refine content from a set of options. They can be selected or deselected, and may include a checkmark icon when selected.
 - Input: Represents user-provided information, such as selections in a menu. They can contain an icon and text, and provide an 'X' for removal.
 - Suggestion: Provides recommendations to the user based on their recent activity or input. Typically appear beneath an input field to prompt user actions.
-These components share the following attributes:
+  These components share the following attributes:
 
 ```
 @Composable
@@ -1024,19 +1024,25 @@ Dynamic Color, which was added in Android 12, enables users to personalize their
 |--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [DynamicThemeScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DynamicThemeScreen.kt) | <img src ="media/theme/img_theme_1.png" width=300><img src ="/media/theme/img_theme_2.png" width=300><img src ="media/theme/img_theme_3.png" width=300><img src ="/media/theme/img_theme_4.png" width=300><img src ="media/theme/img_theme_5.png" width=300><img src ="/media/theme/img_theme_6.png" width=300> |
 
-Credits
------------------
-Author: Anitaa Murthy (murthyanitaa@gmail.com)
+### Switching between dark mode and light mode
+<img src ="media/img_dark_mode.gif" width=300>
 
-<a href="https://medium.com/@anitaa_1990">
-  <img alt="Follow me on Medium"
-       src="https://github.com/anitaa1990/JetpackComposeSample/blob/master/media/medium.png" width="40" />
-</a>
-<a href="https://www.linkedin.com/in/anitaa1990">
-  <img alt="Follow me on LinkedIn"
-       src="https://github.com/anitaa1990/JetpackComposeSample/blob/master/media/linkedin.png" width="40" />
-</a>
+### Navigation in Compose
+[Navigation](https://developer.android.com/develop/ui/compose/navigation) helps you in understanding how your app moves across different components in your Application. The Navigation Component is made up of three major parts:
+- Navigation Graph: This is a resource that collects all navigation-related data in one place.
+- `NavHost`: This is a unique composable that you can include in your layout. It shows various destinations from your Navigation Graph. The NavHost links the NavController with a navigation graph that specifies the composable destinations that you should be able to navigate between.
+- `NavController`: The NavController is the central API for the Navigation component. It is stateful and keeps track of the back stack of composables that make up the screens in your app and the state of each screen. You can create a `NavController` by using the `rememberNavController()` method in your composable.
 
+##### Setup Navigation graph & NavHost
+- Define screens name and routes for Navigation in one file. ie. [NavigationItem.kt](https://github.com/anitaa1990/JetpackComposeSample/blob/master/app/src/main/java/com/an/jetpackcomposesample/provider/NavigationItem.kt)
+- Define NavHost with your screens. ie. [Navigation.kt](https://github.com/anitaa1990/JetpackComposeSample/blob/master/app/src/main/java/com/an/jetpackcomposesample/provider/Navigation.kt)
+- Call `Navigation.kt` inside the `MainApp` file.
+```
+Navigation(
+      navController = navController,
+      modifier = Modifier.padding(innerPadding)
+)
+```
 
 License
 -----------------
