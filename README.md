@@ -1017,6 +1017,13 @@ fun RowScope.NavigationBarItem(
 |--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | [MainBottomBarScreen](app/src/main/java/com/an/jetpackcomposesample/screen/bottombar/MainBottomBarScreen.kt) | <img src ="media/bottombar/img_bottombar_1.gif" width=300><img src ="/media/bottombar/img_bottombar_2.gif" width=300> |
 
+### Dynamic themes
+Dynamic Color, which was added in Android 12, enables users to personalize their devices to align tonally with the color scheme of their personal wallpaper or through a selected color in the wallpaper picker.  We can leverage this feature by adding the `DynamicColors` API, which applies this theming to our app to make it more personalized to the user. More details can be found [here](https://developer.android.com/develop/ui/views/theming/dynamic-colors).
+
+| Example                                                                                          | Preview                                                                                                                                                                                                                                                                                                         |
+|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [DynamicThemeScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DynamicThemeScreen.kt) | <img src ="media/theme/img_theme_1.png" width=300><img src ="/media/theme/img_theme_2.png" width=300><img src ="media/theme/img_theme_3.png" width=300><img src ="/media/theme/img_theme_4.png" width=300><img src ="media/theme/img_theme_5.png" width=300><img src ="/media/theme/img_theme_6.png" width=300> |
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
