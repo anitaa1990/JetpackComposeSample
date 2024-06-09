@@ -917,6 +917,77 @@ SuggestionChip(
 |----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | [SmallerComponentScreen](app/src/main/java/com/an/jetpackcomposesample/screen/SmallerComponentScreen.kt) | <img src ="media/slider/img_slider_1.png" width=300><img src ="/media/slider/img_slider_2.png" width=300> |
 
+### Tabs
+Tab layouts are a common navigation component in mobile app development. We can use the `TabRow` composable to create Tabs and `ScrollableTabRow` for scrollable tabs. Attributes of `TabRow` include:
+```
+@Composable
+fun ScrollableTabRow(
+    selectedTabIndex: Int,                          // the index of the currently selected tab
+    modifier: Modifier = Modifier,                  // the Modifier to be applied to this tab row
+    containerColor: Color = TabRowDefaults.primaryContainerColor,       // the color used for the background of this tab row
+    contentColor: Color = TabRowDefaults.primaryContentColor,           // the preferred color for content inside this tab row
+    edgePadding: Dp = TabRowDefaults.ScrollableTabRowEdgeStartPadding,              // the padding between the starting and ending edge of the scrollable tab row, and the tabs inside the row
+    indicator: @Composable (tabPositions: List<TabPosition>) -> Unit = @Composable { tabPositions ->            // the indicator that represents which tab is currently selected.
+        TabRowDefaults.SecondaryIndicator(
+            Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex])
+        )
+    },
+    divider: @Composable () -> Unit = @Composable {                 // the divider displayed at the bottom of the tab row
+        HorizontalDivider()
+    },
+    tabs: @Composable () -> Unit                        // the tabs inside this tab row
+)
+
+// Example
+ScrollableTabRow(
+  selectedTabIndex = pagerState.currentPage,
+  edgePadding = 0.dp, // removes padding between the first pager item
+  divider = { Spacer(modifier = Modifier.height(5.dp)) },
+  containerColor = MaterialTheme.colorScheme.primaryContainer,
+  indicator = { tabPositions ->
+            // we are specifying the styling for tab indicator by specifying color for the selected tab indicator
+            if (pagerState.currentPage < tabPositions.size) {
+                SecondaryIndicator(
+                    modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage]),
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+  },
+  tabs = {
+            tabData.forEachIndexed { index, data ->
+                Tab(
+                    onClick = {
+                        scope.launch {
+                            pagerState.animateScrollToPage(index)
+                        }
+                    },
+                    selected = pagerState.currentPage == index,
+                    icon = {
+                        Icon(
+                            imageVector = data.second,
+                            contentDescription = "Tab layout icon"
+                        )
+                    },
+                    unselectedContentColor = MaterialTheme.colorScheme.outline,
+                    selectedContentColor = MaterialTheme.colorScheme.primary,
+
+                    // Uncomment if you don't want Text to the tab
+                    text = {
+                        Text(text = data.first, fontSize = 12.sp)
+                    }
+                )
+            }
+        },
+        modifier = Modifier.fillMaxWidth().wrapContentHeight()
+)
+```
+
+| Example                                                                                     | Preview                                                                                           |
+|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [MainTabScreen](app/src/main/java/com/an/jetpackcomposesample/screen/tabs/MainTabScreen.kt) | <img src ="media/tabs/img_tabs_1.gif" width=300><img src ="/media/tabs/img_tabs_2.gif" width=300> |
+
+
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
