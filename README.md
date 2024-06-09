@@ -696,7 +696,7 @@ Radio buttons allow users to select one option from a set. RadioButton can be co
 fun RadioButton(
     selected: Boolean,                                      // whether this radio button is selected or not
     onClick: (() -> Unit)?,                                 // called when this radio button is clicked.
-    modifier: Modifier = Modifier,                          // modifier of th radio button
+    modifier: Modifier = Modifier,                          // modifier of the radio button
     enabled: Boolean = true,                                // controls the enabled state of this radio button.
     colors: RadioButtonColors = RadioButtonDefaults.colors(),           // RadioButtonColors that will be used to resolve the color used for this radio button in different states
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
@@ -722,6 +722,34 @@ RadioButton(
 |------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | [RadioButtonScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RadioButtonScreen.kt) | <img src ="media/radio/img_radio_1.png" width=300><img src ="/media/radio/img_radio_2.png" width=300> |
  
+
+### CheckBox
+Checkboxes allow users to select one or more items from a set. Checkboxes can turn an option on or off. Attributes of `CheckBox` include:
+```
+@Composable
+fun Checkbox(
+    checked: Boolean,                                   // whether this checkbox is checked or unchecked
+    onCheckedChange: ((Boolean) -> Unit)?,              // called when this checkbox is clicked.        
+    modifier: Modifier = Modifier,                      // modifier of the checkbox    
+    enabled: Boolean = true,                            // controls the enabled state of this checkbox.
+    colors: CheckboxColors = CheckboxDefaults.colors(),         // CheckboxColors that will be used to resolve the colors used for this checkbox in different states
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+)
+
+// Example
+Checkbox(
+    checked = (country == checkedOption ),
+    onCheckedChange = { checkedOption = country },
+    colors = CheckboxDefaults.colors(
+              checkedColor = MaterialTheme.colorScheme.secondaryContainer,
+              uncheckedColor = MaterialTheme.colorScheme.primary
+    )
+)
+```
+
+| Example                                                                                  | Preview                                                                                                           |
+|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [CheckBoxScreen](app/src/main/java/com/an/jetpackcomposesample/screen/CheckBoxScreen.kt) | <img src ="media/checkbox/img_checkbox_1.png" width=300><img src ="/media/checkbox/img_checkbox_2.png" width=300> |
 
 Credits
 -----------------
