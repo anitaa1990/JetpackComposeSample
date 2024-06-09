@@ -534,7 +534,7 @@ AlertDialog(
 | [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/alertdialog/img_alert_dialog_1.png" width=300><img src ="/media/alertdialog/img_alert_dialog_2.png" width=300> |
 
 ### Custom Dialog
-We can use the `Dialog` composable to create a custom alert dialog.
+`Dialog` is a basic composable that doesn't provide any styling or predefined slots for content. It is a relatively straightforward container that you should populate with a container such as `Card`.
 ```
 @Composable
 fun Dialog(
@@ -591,6 +591,51 @@ Dialog(onDismissRequest = { showCustomDialog.value = false }) {
 | Example                                                                              | Preview                                                                                                                             |
 |--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/customdialog/img_custom_dialog_1.png" width=300><img src ="/media/customdialog/img_custom_dialog_2.png" width=300> |
+
+## DatePicker Dialog
+The `DatePicker` composable is designed to display a full-screen view of the `DatePicker`. It offers a range of features, including date validation, which allows you to disable future dates or implement custom logic based on your requirements. To enable date validation, you’ll need to provide your own implementation of the SelectableDates interface. We can use the `DatePickerDialog` composable to create a wrapper around `DatePicker` where you can pass your own **Ok** button, **Cancel** button composables.
+
+```
+@Composable
+fun DatePickerDialog(
+    onDismissRequest: () -> Unit,
+    confirmButton: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    dismissButton: @Composable (() -> Unit)? = null,
+    shape: Shape = DatePickerDefaults.shape,
+    tonalElevation: Dp = DatePickerDefaults.TonalElevation,
+    colors: DatePickerColors = DatePickerDefaults.colors(),
+    properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false),
+    content: @Composable ColumnScope.() -> Unit
+)
+
+// Example of DatePickerDialog
+DatePickerDialog(
+    onDismissRequest = { showDatePickerDialog.value = false },
+    confirmButton = {
+          TextButton(
+                onClick = { showDatePickerDialog.value = false }
+            ) {
+                Text("Confirm", color = MaterialTheme.colorScheme.primary)
+            }
+    },
+    dismissButton = {
+          TextButton(
+                onClick = { showDatePickerDialog.value = false }
+          ) {
+                Text(text = "Cancel", color = MaterialTheme.colorScheme.primary)
+          }
+    }) {
+    DatePicker(
+          state = dateState,
+          showModeToggle = true
+    )
+}
+```
+
+| Example                                                                              | Preview                                                                                                                   |
+|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/datepicker/img_datepicker_1.png" width=300><img src ="/media/datepicker/img_datepicker_2.png" width=300> |
 
 Credits
 -----------------
