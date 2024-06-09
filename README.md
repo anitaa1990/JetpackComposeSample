@@ -751,6 +751,172 @@ Checkbox(
 |------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [CheckBoxScreen](app/src/main/java/com/an/jetpackcomposesample/screen/CheckBoxScreen.kt) | <img src ="media/checkbox/img_checkbox_1.png" width=300><img src ="/media/checkbox/img_checkbox_2.png" width=300> |
 
+### Slider
+Sliders allow users to make selections from a range of values. Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters. Attributes of `Slider` includes:
+```
+@Composable
+fun Slider(
+    value: Float,                                           // current value of the slider.
+    onValueChange: (Float) -> Unit,                         // callback in which value should be updated    
+    modifier: Modifier = Modifier,                          // the Modifier to be applied to this slider
+    enabled: Boolean = true,                                // controls the enabled state of this slider
+    valueRange: ClosedFloatingPointRange<Float> = 0f..1f,       // range of values that this slider can take.
+    @IntRange(from = 0)                                         // range of values that this slider can take. 
+    steps: Int = 0,                                         // if greater than 0, specifies the amount of discrete allowable values, evenly distributed across the whole value range. 
+    onValueChangeFinished: (() -> Unit)? = null,            // called when value change has ended
+    colors: SliderColors = SliderDefaults.colors(),         // SliderColors that will be used to resolve the colors used for this slider in different states
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+)
+
+// Example
+Slider(
+     value = sliderPosition,
+     onValueChange = { sliderPosition = it },
+     colors = SliderDefaults.colors(
+           thumbColor = MaterialTheme.colorScheme.primary,
+           activeTrackColor = MaterialTheme.colorScheme.primary,
+           inactiveTrackColor = MaterialTheme.colorScheme.secondaryContainer,
+      ),
+      steps = 5,
+      valueRange = 0f..100f
+)
+```
+| Example                                                                                                  | Preview                                                                                                   |
+|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [SmallerComponentScreen](app/src/main/java/com/an/jetpackcomposesample/screen/SmallerComponentScreen.kt) | <img src ="media/slider/img_slider_1.png" width=300><img src ="/media/slider/img_slider_2.png" width=300> |
+
+### Switch
+A pre-defined composable that's capable of rendering a switch. 
+```
+@Composable
+fun Switch(
+    checked: Boolean,                                   // whether or not this switch is checked
+    onCheckedChange: ((Boolean) -> Unit)?,              // called when this switch is clicked
+    modifier: Modifier = Modifier,                      // the Modifier to be applied to this switch
+    thumbContent: (@Composable () -> Unit)? = null,        // content that will be drawn inside the thumb 
+    enabled: Boolean = true,                            // controls the enabled state of this switch
+    colors: SwitchColors = SwitchDefaults.colors(),         // SwitchColors that will be used to resolve the colors used for this switch in different states
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+)
+
+// Example
+var checked by remember { mutableStateOf(true) }
+Switch(
+       checked = checked,
+       onCheckedChange = { checked = it },
+       thumbContent = if (checked) {
+      {
+             Icon(
+                  imageVector = Icons.Filled.Check,
+                  contentDescription = null,
+                  modifier = Modifier.size(SwitchDefaults.IconSize),
+             )
+       }
+    } else {
+             null
+    }
+)
+```
+
+| Example                                                                                                  | Preview                                                                                                   |
+|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [SmallerComponentScreen](app/src/main/java/com/an/jetpackcomposesample/screen/SmallerComponentScreen.kt) | <img src ="media/slider/img_slider_1.png" width=300><img src ="/media/slider/img_slider_2.png" width=300> |
+
+### Chips
+Chips help people enter information, make selections, filter content, or trigger actions. Chips can show multiple interactive elements together in the same area, such as a list of selectable movie times, or a series of email contacts. The four types of chips and where you might use them are as follows:
+- Assist: Guides the user during a task. Often appears as a temporary UI element in response to user input.
+- Filter: Allows users to refine content from a set of options. They can be selected or deselected, and may include a checkmark icon when selected.
+- Input: Represents user-provided information, such as selections in a menu. They can contain an icon and text, and provide an 'X' for removal.
+- Suggestion: Provides recommendations to the user based on their recent activity or input. Typically appear beneath an input field to prompt user actions.
+These components share the following attributes:
+
+```
+@Composable
+private fun Chip(
+    modifier: Modifier,
+    onClick: () -> Unit,
+    enabled: Boolean,
+    label: @Composable () -> Unit,
+    labelTextStyle: TextStyle,
+    labelColor: Color,
+    leadingIcon: @Composable (() -> Unit)?,
+    trailingIcon: @Composable (() -> Unit)?,
+    shape: Shape,
+    colors: ChipColors,
+    elevation: ChipElevation?,
+    border: BorderStroke?,
+    minHeight: Dp,
+    paddingValues: PaddingValues,
+    interactionSource: MutableInteractionSource,
+)
+
+// AssisChip example
+AssistChip(
+   onClick = {  },
+   label = {
+      Text(text = "Assist chip", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+   },
+   border = BorderStroke(width = 3.dp, color = MaterialTheme.colorScheme.primary),
+   leadingIcon = {
+            Icon(Icons.Filled.Settings, contentDescription = "Settings", Modifier.size(AssistChipDefaults.IconSize), tint = MaterialTheme.colorScheme.primary)
+   }
+)
+
+// FilterChip example
+FilterChip(
+    onClick = { selectedFilter = !selectedFilter },
+    border = FilterChipDefaults.filterChipBorder(
+       enabled = true,
+       selected = false,
+       borderColor = MaterialTheme.colorScheme.primary,
+       selectedBorderColor = MaterialTheme.colorScheme.secondaryContainer
+    ),
+    colors = FilterChipDefaults.filterChipColors(selectedContainerColor = MaterialTheme.colorScheme.secondaryContainer),
+    label = {
+            Text(text = "Filter chip", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+    },
+    selected = selectedFilter,
+    leadingIcon = {
+            Icon(imageVector = filterLeadingIcon, contentDescription = "Leading icon", modifier = Modifier.size(FilterChipDefaults.IconSize), tint = MaterialTheme.colorScheme.primary)
+    },
+)
+
+// InputChip example
+InputChip(
+   onClick = {  },
+   label = {
+            Text(text = "Input chip", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+   },
+    border = FilterChipDefaults.filterChipBorder(
+         enabled = true,
+         selected = false,
+         borderColor = MaterialTheme.colorScheme.primary,
+         selectedBorderColor = MaterialTheme.colorScheme.secondaryContainer
+    ),
+    colors = FilterChipDefaults.filterChipColors(selectedContainerColor = MaterialTheme.colorScheme.secondaryContainer),
+    selected = enabled,
+    avatar = {
+            Icon(Icons.Filled.Person, contentDescription = "Input Chip person icon", Modifier.size(InputChipDefaults.AvatarSize), tint = MaterialTheme.colorScheme.primary)
+    },
+    trailingIcon = {
+            Icon(Icons.Default.Close, contentDescription = "Input Chip close icon", Modifier.size(InputChipDefaults.AvatarSize), tint = MaterialTheme.colorScheme.primary)
+     },
+)
+
+// SuggestionChip example
+SuggestionChip(
+    onClick = { Toast.makeText(context, "Suggestion clicked!", Toast.LENGTH_SHORT).show() },
+    border = BorderStroke(width = 3.dp, color = MaterialTheme.colorScheme.primary),
+    label = {
+          Text(text = "Suggestion chip", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+    }
+)
+```
+
+| Example                                                                                                  | Preview                                                                                                   |
+|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [SmallerComponentScreen](app/src/main/java/com/an/jetpackcomposesample/screen/SmallerComponentScreen.kt) | <img src ="media/slider/img_slider_1.png" width=300><img src ="/media/slider/img_slider_2.png" width=300> |
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
