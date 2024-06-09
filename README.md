@@ -637,6 +637,58 @@ DatePickerDialog(
 |--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/datepicker/img_datepicker_1.png" width=300><img src ="/media/datepicker/img_datepicker_2.png" width=300> |
 
+### BottomSheet
+Modal bottom sheets are used as an alternative to inline menus or simple dialogs on mobile, especially when offering a long list of action items, or when items require longer descriptions and icons. Like dialogs, modal bottom sheets appear in front of app content, disabling all other app functionality when they appear, and remaining on screen until confirmed, dismissed, or a required action has been taken.
+```
+@Composable
+@ExperimentalMaterial3Api
+fun ModalBottomSheet(
+    onDismissRequest: () -> Unit,                                       // Executes when the user clicks outside of the bottom sheet   
+    modifier: Modifier = Modifier,                                      // Optional Modifier for the bottom sheet
+    sheetState: SheetState = rememberModalBottomSheetState(),               // The state of the bottom sheet.
+    sheetMaxWidth: Dp = BottomSheetDefaults.SheetMaxWidth,                  // defines what the maximum width the sheet will take.
+    shape: Shape = BottomSheetDefaults.ExpandedShape,                       // The shape of the bottom sheet
+    containerColor: Color = BottomSheetDefaults.ContainerColor,             // The color used for the background of this bottom sheet
+    contentColor: Color = contentColorFor(containerColor),                  // The preferred color for content inside this bottom sheet
+    tonalElevation: Dp = BottomSheetDefaults.Elevation,                     // The tonal elevation of this bottom sheet.
+    scrimColor: Color = BottomSheetDefaults.ScrimColor,                             // Color of the scrim that obscures content when the bottom sheet is open.
+    dragHandle: @Composable (() -> Unit)? = { BottomSheetDefaults.DragHandle() },       // Optional visual marker to swipe the bottom sheet
+    windowInsets: WindowInsets = BottomSheetDefaults.windowInsets,                      // window insets to be passed to the bottom sheet window
+    properties: ModalBottomSheetProperties = ModalBottomSheetDefaults.properties(),     // for further customization of this modal bottom sheet's behavior.    
+    content: @Composable ColumnScope.() -> Unit,                                        // The content to be displayed inside the bottom sheet.
+)
+
+// Example of BottomSheet
+val modalBottomSheetState = rememberModalBottomSheetState()
+
+ModalBottomSheet(
+        onDismissRequest = { showBottomSheet.value = false },
+        sheetState = modalBottomSheetState,
+        dragHandle = { BottomSheetDefaults.DragHandle() },
+) {
+    LazyColumn {
+        items(countries.size) {
+            Row(modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp, horizontal = 20.dp)
+                clickable {
+                      Toast.makeText(context, countries[it].first+ " Clicked", Toast.LENGTH_SHORT).show()
+                      showBottomSheet.value = false
+                  }
+                ) {
+                Text(
+                    text = countries[it].second,
+                    modifier = Modifier.padding(end = 20.dp, top = 5.dp, bottom = 5.dp)
+                )
+               Text(text = countries[it].first)
+            }
+        }
+    }
+}
+```
+
+| Example                                                                              | Preview                                                                                                                       |
+|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/bottomsheet/img_bottomsheet_1.png" width=300><img src ="/media/bottomsheet/img_bottomsheet_2.png" width=300> |
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
