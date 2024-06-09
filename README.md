@@ -30,7 +30,7 @@
 - [Switch](#switch)
 - [Chips](#chips)
 - [Tabs](#tabs)
-- [BottomBar](#bottombar)
+- [Bottom Navigation Bar](#bottom-navigation-bar)
 - [Dynamic themes](#dynamic-themes)
 - [Switching between dark and light mode](#switching-between-dark-mode-and-light-mode)
 - [Navigation in Compose](#navigation-in-compose)
@@ -986,7 +986,36 @@ ScrollableTabRow(
 |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | [MainTabScreen](app/src/main/java/com/an/jetpackcomposesample/screen/tabs/MainTabScreen.kt) | <img src ="media/tabs/img_tabs_1.gif" width=300><img src ="/media/tabs/img_tabs_2.gif" width=300> |
 
+### Bottom Navigation Bar
+Navigation bars offer a persistent and convenient way to switch between primary destinations in an app. The recommended configuration for a `NavigationBarItem` depends on how many items there are inside a `NavigationBar`:
+```
+@Composable
+fun NavigationBar(
+    modifier: Modifier = Modifier,                  // the Modifier to be applied to this navigation bar 
+    containerColor: Color = NavigationBarDefaults.containerColor,                           // the color used for the background of this navigation bar
+    contentColor: Color = MaterialTheme.colorScheme.contentColorFor(containerColor),        // the preferred color for content inside this navigation bar
+    tonalElevation: Dp = NavigationBarDefaults.Elevation,                                   // when containerColor is ColorScheme.surface, a translucent primary color overlay is applied on top of the container.
+    windowInsets: WindowInsets = NavigationBarDefaults.windowInsets,                    // a window insets of the navigation bar
+    content: @Composable RowScope.() -> Unit                    // the content of this navigation bar, typically 3-5 NavigationBarItems
+)
 
+@Composable
+fun RowScope.NavigationBarItem(
+    selected: Boolean,                      // whether this item is selected
+    onClick: () -> Unit,                    // called when this item is clicked
+    icon: @Composable () -> Unit,           // icon for this item
+    modifier: Modifier = Modifier,          // the Modifier to be applied to this item
+    enabled: Boolean = true,                // controls the enabled state of this item
+    label: @Composable (() -> Unit)? = null,        // optional text label for this item
+    alwaysShowLabel: Boolean = true,                // whether to always show the label for this item
+    colors: NavigationBarItemColors = NavigationBarItemDefaults.colors(),           // NavigationBarItemColors that will be used to resolve the colors used for this item in different states
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+) 
+```
+
+| Example                                                                                                      | Preview                                                                                                               |
+|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [MainBottomBarScreen](app/src/main/java/com/an/jetpackcomposesample/screen/bottombar/MainBottomBarScreen.kt) | <img src ="media/bottombar/img_bottombar_1.gif" width=300><img src ="/media/bottombar/img_bottombar_2.gif" width=300> |
 
 Credits
 -----------------
