@@ -689,6 +689,40 @@ ModalBottomSheet(
 |--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/bottomsheet/img_bottomsheet_1.png" width=300><img src ="/media/bottomsheet/img_bottomsheet_2.png" width=300> |
 
+### RadioButton
+Radio buttons allow users to select one option from a set. RadioButton can be combined together with `Text` in the desired layout to achieve radio group-like behaviour, where the entire layout is selectable. Attributes of `RadioButton` composable include:
+```
+@Composable
+fun RadioButton(
+    selected: Boolean,                                      // whether this radio button is selected or not
+    onClick: (() -> Unit)?,                                 // called when this radio button is clicked.
+    modifier: Modifier = Modifier,                          // modifier of th radio button
+    enabled: Boolean = true,                                // controls the enabled state of this radio button.
+    colors: RadioButtonColors = RadioButtonDefaults.colors(),           // RadioButtonColors that will be used to resolve the color used for this radio button in different states
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+)
+
+// Example
+RadioButton(
+      selected = (country == selectedOption),
+      onClick = { selectedOption = country },
+      colors = RadioButtonDefaults.colors(
+                  selectedColor = MaterialTheme.colorScheme.primary,
+                  unselectedColor = MaterialTheme.colorScheme.secondaryContainer
+          )
+      )
+      Text(
+           text = country,
+           style = MaterialTheme.typography.bodyLarge
+      )
+)
+```
+
+| Example                                                                                        | Preview                                                                                               |
+|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| [RadioButtonScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RadioButtonScreen.kt) | <img src ="media/radio/img_radio_1.png" width=300><img src ="/media/radio/img_radio_2.png" width=300> |
+ 
+
 Credits
 -----------------
 Author: Anitaa Murthy (murthyanitaa@gmail.com)
