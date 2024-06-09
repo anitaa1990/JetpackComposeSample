@@ -33,7 +33,11 @@ fun ProgressBarScreen(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(bottom = 12.dp)
         )
-        
+
+        /**
+         * A pre-defined composable that's capable of rendering a progress indicator. It honors
+         * the Material Design specification. It has fixed width as per Material spec - 240dp
+         */
         LinearProgressBar()
         CustomLinearProgressBar()
 

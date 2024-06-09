@@ -80,9 +80,9 @@ Compose comes with this nifty feature that lets you preview each component in th
 ### Rows
 A `Row` is a horizontal layout component in Jetpack Compose. It is used to position UI elements horizontally. You can add any number of children to a row, and they will be laid out horizontally in the order they were added. By default, the row will take up as much horizontal space as possible, and the children will be sized to fit within the row’s boundaries.
 
-|Example|Preview|
-|-------|-------|
-|[RowScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RowScreen.kt)|<img src ="media/row/img_row_1.png" width=300><img src ="/media/row/img_row_2.png" width=300>|
+| Example                                                                        | Preview                                                                                       |
+|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| [RowScreen](app/src/main/java/com/an/jetpackcomposesample/screen/RowScreen.kt) | <img src ="media/row/img_row_1.png" width=300><img src ="/media/row/img_row_2.png" width=300> |
 
 ```
 @Composable
@@ -447,6 +447,37 @@ Card(
 | Example                                                                                          | Preview                                                                                                           |
 |--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [CardScreen](app/src/main/java/com/an/jetpackcomposesample/screen/CardScreen.kt) | <img src ="media/card/img_card_1.png" width=300><img src ="/media/card/img_card_2.png" width=300> |
+
+### Progress Indicators
+Progress indicators visually surface the status of an operation. They use motion to bring to the user's attention how near completion the process is, such as loading or processing data. There are 2 types of Progress indicators: `LinearProgressIndicator` & `CircularProgressIndicator`. Attributes of `LinearProgressIndicator` includes:
+```
+@Composable
+fun LinearProgressIndicator(
+    modifier: Modifier = Modifier,                                         // the Modifier to be applied to this progress indicator
+    color: Color = ProgressIndicatorDefaults.linearColor,                 // color of this progress indicator 
+    trackColor: Color = ProgressIndicatorDefaults.linearTrackColor,        // color of the track behind the indicator, visible when the progress has not reached the area of the overall indicator yet
+    strokeCap: StrokeCap = ProgressIndicatorDefaults.LinearStrokeCap,      // stroke cap to use for the ends of this progress indicator
+)
+
+// Example of LinearProgressIndicator
+LinearProgressIndicator(
+        modifier = Modifier.fillMaxWidth().height(8.dp),
+        trackColor = MaterialTheme.colorScheme.secondaryContainer,
+        color = MaterialTheme.colorScheme.primary, //progress color
+    )
+}
+
+// Example of CircularProgressIndicator
+CircularProgressIndicator(
+        trackColor = MaterialTheme.colorScheme.primary,
+        color = MaterialTheme.colorScheme.secondaryContainer //progress color
+)
+```
+
+| Example                                                                                          | Preview                                                                                                           |
+|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [ProgressBarScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ProgressBarScreen.kt) | <img src ="media/progress/img_progress_1.png" width=300><img src ="/media/progress/img_progress_2.png" width=300> |
+
 
 
 Credits
