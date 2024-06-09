@@ -413,8 +413,8 @@ Scaffold(
 )    
 ```
 
-| Example                                                                                          | Preview                                                                                                           |
-|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Example                                                                                  | Preview                                                                                                           |
+|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [ScaffoldScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ScaffoldScreen.kt) | <img src ="media/scaffold/img_scaffold_1.png" width=300><img src ="/media/scaffold/img_scaffold_2.png" width=300> |
 
 
@@ -444,8 +444,8 @@ Card(
 }
 ```
 
-| Example                                                                                          | Preview                                                                                                           |
-|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Example                                                                          | Preview                                                                                           |
+|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | [CardScreen](app/src/main/java/com/an/jetpackcomposesample/screen/CardScreen.kt) | <img src ="media/card/img_card_1.png" width=300><img src ="/media/card/img_card_2.png" width=300> |
 
 ### Progress Indicators
@@ -474,8 +474,8 @@ CircularProgressIndicator(
 )
 ```
 
-| Example                                                                                          | Preview                                                                                                           |
-|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Example                                                                                        | Preview                                                                                                           |
+|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [ProgressBarScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ProgressBarScreen.kt) | <img src ="media/progress/img_progress_1.png" width=300><img src ="/media/progress/img_progress_2.png" width=300> |
 
 ### Alert Dialog
@@ -533,6 +533,64 @@ AlertDialog(
 |--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/alertdialog/img_alert_dialog_1.png" width=300><img src ="/media/alertdialog/img_alert_dialog_2.png" width=300> |
 
+### Custom Dialog
+We can use the `Dialog` composable to create a custom alert dialog.
+```
+@Composable
+fun Dialog(
+    onDismissRequest: () -> Unit,                       // Executes when the user tries to dismiss the dialog.
+    properties: DialogProperties = DialogProperties(),  // for further customization of this dialog's behavior.
+    content: @Composable () -> Unit                     // The content to be displayed inside the dialog.
+)
+
+// Example of Dialog
+Dialog(onDismissRequest = { showCustomDialog.value = false }) {
+    Card(
+          elevation = CardDefaults.cardElevation(8.dp),
+          shape = RoundedCornerShape(8.dp),
+          modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 20.dp, top = 20.dp)
+    ) {
+         Column(
+             horizontalAlignment = Alignment.CenterHorizontally,
+             modifier = Modifier.fillMaxWidth().wrapContentHeight()
+                    .background(MaterialTheme.colorScheme.inverseOnSurface)
+                    .padding(16.dp)
+            ) {
+                Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = MaterialTheme.colorScheme.secondaryContainer)
+                    Column(modifier = Modifier.padding(16.dp).fillMaxWidth(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                 Text(
+                        text = "Dialog with info icon",
+                        style = TextStyle(fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary, fontSize = 18.sp)
+                    )
+                 Text(
+                        modifier = Modifier.padding(top = 10.dp),
+                        textAlign = TextAlign.Center,
+                        text = "This Dialog is an example of a custom dialog with the Dialog Composable"
+                    )
+                }
+                TextButton(
+                    onClick = { showCustomDialog.value = false }
+                ) {
+                    Text("Confirm", color = MaterialTheme.colorScheme.primary)
+                }
+                TextButton(
+                    onClick = { showCustomDialog.value = false }
+                ) {
+                    Text("Dismiss", color = MaterialTheme.colorScheme.primary)
+                }
+            }
+     }
+ }
+```
+
+| Example                                                                              | Preview                                                                                                                             |
+|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/customdialog/img_custom_dialog_1.png" width=300><img src ="/media/customdialog/img_custom_dialog_2.png" width=300> |
 
 Credits
 -----------------
