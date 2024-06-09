@@ -478,6 +478,60 @@ CircularProgressIndicator(
 |--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | [ProgressBarScreen](app/src/main/java/com/an/jetpackcomposesample/screen/ProgressBarScreen.kt) | <img src ="media/progress/img_progress_1.png" width=300><img src ="/media/progress/img_progress_2.png" width=300> |
 
+### Alert Dialog
+The `AlertDialog` composable provides a convenient API for creating a Material Design themed dialog. `AlertDialog` has specific parameters for handling particular elements of the dialog.
+```
+@Composable
+fun AlertDialog(
+    onDismissRequest: () -> Unit,               // called when the user tries to dismiss the Dialog by clicking outside or pressing the back button. This is not called when the dismiss button is clicked.
+    confirmButton: @Composable () -> Unit,      // button which is meant to confirm a proposed action
+    modifier: Modifier = Modifier,              // the Modifier to be applied to this dialog
+    dismissButton: @Composable (() -> Unit)? = null,        // button which is meant to dismiss the dialog
+    icon: @Composable (() -> Unit)? = null,     // optional icon that will appear above the title or above the text.
+    title: @Composable (() -> Unit)? = null,    // title which should specify the purpose of the dialog.
+    text: @Composable (() -> Unit)? = null,     // text which presents the details regarding the dialog's purpose.
+    shape: Shape = AlertDialogDefaults.shape,   // defines the shape of this dialog's container
+    containerColor: Color = AlertDialogDefaults.containerColor,         // the color used for the background of this dialog.
+    iconContentColor: Color = AlertDialogDefaults.iconContentColor,     // the content color used for the icon.
+    titleContentColor: Color = AlertDialogDefaults.titleContentColor,   // the content color used for the title.
+    textContentColor: Color = AlertDialogDefaults.textContentColor,     // the content color used for the text.
+    tonalElevation: Dp = AlertDialogDefaults.TonalElevation,            // when containerColor is ColorScheme.surface, a translucent primary color overlay is applied on top of the container.
+    properties: DialogProperties = DialogProperties()               // typically platform specific properties to further configure the dialog.
+)
+
+
+// Example of AlertDialog
+AlertDialog(
+        icon = {
+            Icon(Icons.Filled.Info, contentDescription = "Info Icon", tint = MaterialTheme.colorScheme.secondaryContainer)
+        },
+        title = {
+            Text(text = "Dialog with info icon")
+        },
+        text = {
+            Text(text = "The Dialog component displays pop up messages or requests user input on a layer above the main app content. It creates an interruptive UI experience to capture user attention.")
+        },
+        onDismissRequest = { },
+        confirmButton = {
+            TextButton(
+                onClick = { showAlertDialog.value = false }
+            ) {
+                Text("Confirm", color = MaterialTheme.colorScheme.primary)
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = { showAlertDialog.value = false }
+            ) {
+                Text("Dismiss", color = MaterialTheme.colorScheme.primary)
+            }
+        }
+)
+```
+
+| Example                                                                              | Preview                                                                                                                         |
+|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [DialogScreen](app/src/main/java/com/an/jetpackcomposesample/screen/DialogScreen.kt) | <img src ="media/alertdialog/img_alert_dialog_1.png" width=300><img src ="/media/alertdialog/img_alert_dialog_2.png" width=300> |
 
 
 Credits
