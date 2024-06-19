@@ -108,7 +108,7 @@ fun StyledTextFieldExample() {
             textStyle = TextStyle(color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(20.dp),
             shape = MaterialTheme.shapes.extraLarge,
-            colors = TextFieldDefaults.textFieldColors(
+            colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent
