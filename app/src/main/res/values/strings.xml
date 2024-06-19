@@ -35,7 +35,9 @@
     <string name="intro_screen_bottombar_title">Bottom bar</string>
     <string name="intro_screen_bottombar_desc">Represents a standard bottom navigation bar.</string>
     <string name="intro_screen_theme_title">Dynamic theme</string>
+    <string name="intro_screen_search_title">Search Bar</string>
     <string name="intro_screen_theme_desc">enables users to personalize their devices to align with the color scheme of their wallpaper.</string>
+    <string name="intro_screen_search_desc">a floating search field that allows users to search and get relevant information.</string>
     <string name="row_screen_text">Row</string>
     <string name="row_screen_txt_1">Start - places children horizontally so that they are as close as possible to the beginning of the horizontal axis.</string>
     <string name="row_screen_txt_2">End - places children horizontally so that they are as close as possible to the end of the horizontal axis.</string>

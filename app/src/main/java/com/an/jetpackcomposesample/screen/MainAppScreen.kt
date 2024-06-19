@@ -145,7 +145,8 @@ enum class MainAppScreen(@StringRes val title: Int) {
     Others(title = R.string.intro_screen_others_title),
     Tab(title = R.string.intro_screen_tab_title),
     BottomBar(title = R.string.intro_screen_bottombar_title),
-    Themes(title = R.string.intro_screen_theme_title)
+    Themes(title = R.string.intro_screen_theme_title),
+    Search(title = R.string.intro_screen_search_title)
 }
 
 @Preview

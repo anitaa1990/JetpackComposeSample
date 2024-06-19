@@ -139,6 +139,11 @@ fun IntroScreen(
             infoTextRes = R.string.intro_screen_theme_desc,
             onClick = { navController.navigate(NavigationItem.ThemesScreen.route) }
         )
+        DemoButtonWithText(
+            buttonTextRes = R.string.intro_screen_search_title,
+            infoTextRes = R.string.intro_screen_search_desc,
+            onClick = { navController.navigate(NavigationItem.SearchScreen.route) }
+        )
     }
 }
 

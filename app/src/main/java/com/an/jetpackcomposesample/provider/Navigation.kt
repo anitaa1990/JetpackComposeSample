@@ -17,6 +17,7 @@ import com.an.jetpackcomposesample.screen.ProgressBarScreen
 import com.an.jetpackcomposesample.screen.RadioButtonScreen
 import com.an.jetpackcomposesample.screen.RowScreen
 import com.an.jetpackcomposesample.screen.ScaffoldScreen
+import com.an.jetpackcomposesample.screen.SearchScreen
 import com.an.jetpackcomposesample.screen.SmallerComponentScreen
 import com.an.jetpackcomposesample.screen.TextFieldScreen
 import com.an.jetpackcomposesample.screen.TextScreen
@@ -91,6 +92,9 @@ fun Navigation(
         }
         composable(NavigationItem.ThemesScreen.route) {
             DynamicThemeScreen()
+        }
+        composable(NavigationItem.SearchScreen.route) {
+            SearchScreen()
         }
     }
 }

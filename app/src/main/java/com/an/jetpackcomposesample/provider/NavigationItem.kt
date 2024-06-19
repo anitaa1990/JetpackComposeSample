@@ -64,4 +64,5 @@ sealed class NavigationItem(
     data object TabsScreen: NavigationItem(NAV_ROUTE_TAB)
     data object BottomBarScreen: NavigationItem(NAV_ROUTE_BOTTOM_BAR)
     data object ThemesScreen: NavigationItem(NAV_ROUTE_THEMES)
+    data object SearchScreen: NavigationItem(NAV_ROUTE_THEMES)
 }
