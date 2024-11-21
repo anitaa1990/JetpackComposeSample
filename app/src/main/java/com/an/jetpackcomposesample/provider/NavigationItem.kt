@@ -27,6 +27,7 @@ import com.an.jetpackcomposesample.Constants.NAV_ROUTE_PROGRESS
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_RADIO
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_ROW
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_SCAFFOLD
+import com.an.jetpackcomposesample.Constants.NAV_ROUTE_SEARCH
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_SETTINGS
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_TAB
 import com.an.jetpackcomposesample.Constants.NAV_ROUTE_TEXT
@@ -64,5 +65,5 @@ sealed class NavigationItem(
     data object TabsScreen: NavigationItem(NAV_ROUTE_TAB)
     data object BottomBarScreen: NavigationItem(NAV_ROUTE_BOTTOM_BAR)
     data object ThemesScreen: NavigationItem(NAV_ROUTE_THEMES)
-    data object SearchScreen: NavigationItem(NAV_ROUTE_THEMES)
+    data object SearchScreen: NavigationItem(NAV_ROUTE_SEARCH)
 }
