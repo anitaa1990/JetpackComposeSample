@@ -28,5 +28,5 @@ object Constants {
     const val NAV_ROUTE_TAB = "Tab"
     const val NAV_ROUTE_BOTTOM_BAR = "BottomBar"
     const val NAV_ROUTE_THEMES = "Themes"
-    const val NAV_ROUTE_SEARCH = "SEARCH"
+    const val NAV_ROUTE_SEARCH = "Search"
 }

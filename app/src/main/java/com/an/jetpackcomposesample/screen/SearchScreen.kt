@@ -5,15 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -23,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -37,8 +34,21 @@ fun SearchScreen(modifier: Modifier = Modifier) {
     var text by rememberSaveable { mutableStateOf("") }
     var expanded by rememberSaveable { mutableStateOf(false) }
 
-    Column(
+    // Original list of items
+    val originalList = List(100) { "Text $it" }
 
+    // Filtered list based on the search query
+    val filteredList = remember(text) {
+        if (text.isEmpty()) {
+            originalList
+        } else {
+            originalList.filter { it.contains(text, ignoreCase = true) }
+        }
+    }
+
+
+    Column(
+        modifier = modifier
     ) {
         SearchBar(
             windowInsets = WindowInsets(top = 0.dp),
@@ -57,7 +67,13 @@ fun SearchScreen(modifier: Modifier = Modifier) {
                     trailingIcon = {
                         if (expanded) {
                             Icon(
-                                modifier = Modifier.clickable { text = "" },
+                                modifier = Modifier.clickable {
+                                    if (text.isEmpty()) {
+                                        expanded = false
+                                    } else {
+                                        text = ""
+                                    }
+                                                              },
                                 imageVector = Icons.Default.Close, contentDescription = null)
                         }
                     },
@@ -72,10 +88,9 @@ fun SearchScreen(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.semantics { traversalIndex = 1f },
         ) {
-            val list = List(100) { "Text $it" }
-            items(count = list.size) {
+            items(count = filteredList.size) {
                 Text(
-                    text = list[it],
+                    text = filteredList[it],
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
